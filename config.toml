@@ -92,7 +92,7 @@ author = "authors"
 name = "Github"
 icon = "fa fa-2x fa-github"
 weight = 1
-url = "https://github.com/s3lcsumm/"
+url = "https://github.com/s3lcsum/"
 
 [[params.social]]
 name = "Gitlab"
@@ -107,10 +107,23 @@ weight = 4
 url = "https://www.linkedin.com/in/dominiksiejak/"
 
 [[params.social]]
-name = "Medium"
-icon = "fa fa-2x fa-medium"
+name = "Telegram"
+icon = "fa fa-2x fa-telegram"
 weight = 5
-url = "https://medium.com/@dominiksiejak"
+url = "https://t.me/s3lcsum"
+
+[[params.social]]
+name = "whatsapp"
+icon = "fa fa-2x fa-whatsapp"
+weight = 6
+url = "https://wa.me/48502061274"
+
+[[params.social]]
+name = "E-mail"
+icon = "fa fa-2x fa-envelope"
+weight = 7
+url = "mailto:office@dominiksiejak.pl"
+
 
 [languages.en]
 languageName = ":uk:"
