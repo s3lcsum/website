@@ -13,7 +13,7 @@ enableEmoji = true
 
 [params]
 author = "Dominik Siejak"
-description = "Ninja in IT"
+description = "🥷 Ninja in IT"
 keywords = "blog,developer,personal"
 info = ["DevOps • Blockchain • IoT"]
 avatarURL = "images/avatar.jpg"
@@ -29,7 +29,7 @@ rtl = false
 # "auto" (use preference set by browser)
 # "dark" (dark background, light foreground)
 # "light" (light background, dark foreground) (default)
-colorScheme = "dark"
+colorScheme = "auto"
 # Hide the toggle button, along with the associated vertical divider
 hideColorSchemeToggle = false
 # Series see also post count
@@ -65,8 +65,8 @@ customJS = []
 # serverURL = "analytics.example.com" # For cloud-hosting, use provided URL, e.g. example.matomo.cloud
 
 # If you want to use Google Tag Manager(https://analytics.google.com/) for analytics, add this section
-# [params.googleTagManager]
-# id = "gid"
+ [params.googleTagManager]
+ id = "G-3L1V2VRDRZ"
 
 # If you want to implement a Content-Security-Policy, add this section
 [params.csp]
@@ -116,7 +116,13 @@ url = "https://t.me/s3lcsum"
 name = "whatsapp"
 icon = "fa fa-2x fa-whatsapp"
 weight = 6
-url = "https://wa.me/48502061274"
+url = "https://wa.me/34621020018"
+
+[[params.social]]
+name = "threads"
+icon = "fa fa-2x fa-threads"
+weight = 6
+url = "https://www.threads.net/@_siewko"
 
 [[params.social]]
 name = "E-mail"
@@ -124,6 +130,11 @@ icon = "fa fa-2x fa-envelope"
 weight = 7
 url = "mailto:office@dominiksiejak.pl"
 
+[[params.social]]
+name = "Lichess"
+icon = "fa fa-2x fa-chess"
+weight = 7
+url = "https://lichess.org/@/s3lcsum"
 
 [languages.en]
-languageName = ":uk:"
+languageName = ":en:"
