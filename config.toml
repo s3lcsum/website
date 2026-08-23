@@ -1,4 +1,4 @@
-baseURL = "http://dominiksiejak.pl"
+baseURL = "https://dominiksiejak.pl"
 title = "Dominik Siejak"
 theme = "hugo-coder"
 languageCode = "en"
@@ -138,3 +138,8 @@ url = "https://lichess.org/@/s3lcsum"
 
 [languages.en]
 languageName = ":en:"
+
+[[languages.en.menu.main]]
+name = "Privacy"
+weight = 10
+url = "fb_privacy/"
