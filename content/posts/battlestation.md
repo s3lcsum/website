@@ -1,5 +1,5 @@
 ---
-title: "My Battlestation"
+title: "Battlestation"
 date: 2026-08-23
 description: "A clean workspace built around a MacBook Pro M4 Max and a 4K LG monitor."
 tags: ["battlestation", "setup", "workspace"]
