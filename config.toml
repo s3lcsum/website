@@ -1,7 +1,7 @@
 baseURL = "https://dominiksiejak.pl"
 title = "Dominik Siejak"
 theme = "hugo-coder"
-languageCode = "en"
+locale = "en"
 defaultContentLanguage = "en"
 paginate = 20
 pygmentsStyle = "bw"
@@ -15,7 +15,7 @@ enableEmoji = true
 author = "Dominik Siejak"
 description = "🥷 Ninja in IT"
 keywords = "blog,developer,personal"
-info = ["DevOps • Blockchain • IoT"]
+info = ["DevOps • Blockchain • IoT", "GCP • AWS • Kubernetes • ArgoCD"]
 avatarURL = "images/avatar.jpg"
 gravatar = "dreewniak@gmail.com"
 dateFormat = "January 2, 2006"
@@ -74,7 +74,7 @@ childsrc = ["'self'"]
 fontsrc = ["'self'", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net/"]
 formaction = ["'self'"]
 framesrc = ["'self'"]
-imgsrc = ["'self'", "'unsafe-inline", "https://www.gravatar.com"]
+imgsrc = ["'self'", "'unsafe-inline'", "https://www.gravatar.com", "https://img.shields.io"]
 objectsrc = ["'none'"]
 stylesrc = ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com/", "https://cdn.jsdelivr.net/"]
 scriptsrc = ["'self'", "'unsafe-inline'", "https://www.google-analytics.com", "https://static.cloudflareinsight.com"]
@@ -137,7 +137,12 @@ weight = 7
 url = "https://lichess.org/@/s3lcsum"
 
 [languages.en]
-languageName = ":en:"
+label = ":en:"
+
+[[languages.en.menu.main]]
+name = "About"
+weight = 1
+url = "about/"
 
 [[languages.en.menu.main]]
 name = "Privacy"
