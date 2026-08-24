@@ -50,53 +50,67 @@ url = "mailto:office@dominiksiejak.pl"
 short = "office@dominiksiejak.pl"
 
 [[params.social]]
+name = "WhatsApp"
+icon = "whatsapp"
+weight = 2
+url = "https://wa.me/34621020018"
+short = "wa.me/34621020018"
+
+[[params.social]]
+name = "Discord"
+icon = "discord"
+weight = 3
+url = "https://discord.com/users/s3lcsum"
+short = "s3lcsum"
+
+[[params.social]]
+name = "Chess.com"
+icon = "chess"
+weight = 4
+url = "https://www.chess.com/member/s3lcsum"
+short = "chess.com/s3lcsum"
+
+[[params.social]]
+name = "Lichess"
+icon = "lichess"
+weight = 5
+url = "https://lichess.org/@/s3lcsum"
+short = "lichess.org/@/s3lcsum"
+
+[[params.social]]
 name = "Telegram"
 icon = "telegram"
-weight = 2
+weight = 6
 url = "https://t.me/s3lcsum"
 short = "t.me/s3lcsum"
 
 [[params.social]]
 name = "GitHub"
 icon = "github"
-weight = 3
+weight = 7
 url = "https://github.com/s3lcsum/"
 short = "github.com/s3lcsum"
 
 [[params.social]]
-name = "LinkedIn"
-icon = "linkedin"
-weight = 4
-url = "https://www.linkedin.com/in/dominiksiejak/"
-short = "linkedin.com/in/dominiksiejak"
-
-[[params.social]]
-name = "WhatsApp"
-icon = "whatsapp"
-weight = 5
-url = "https://wa.me/34621020018"
-short = "WhatsApp"
-
-[[params.social]]
 name = "GitLab"
 icon = "gitlab"
-weight = 6
+weight = 8
 url = "https://gitlab.com/s3lcsum/"
 short = "gitlab.com/s3lcsum"
 
 [[params.social]]
-name = "Threads"
-icon = "threads"
-weight = 7
-url = "https://www.threads.net/@_siewko"
-short = "@_siewko"
+name = "LinkedIn"
+icon = "linkedin"
+weight = 9
+url = "https://www.linkedin.com/in/dominiksiejak/"
+short = "linkedin.com/in/dominiksiejak"
 
 [[params.social]]
-name = "Chess.com"
-icon = "chess"
-weight = 8
-url = "https://www.chess.com/member/s3lcsum"
-short = "chess.com/s3lcsum"
+name = "Threads"
+icon = "threads"
+weight = 10
+url = "https://www.threads.net/@_siewko"
+short = "@_siewko"
 
 [languages.en]
 label = "English"

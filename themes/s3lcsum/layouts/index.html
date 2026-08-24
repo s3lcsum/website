@@ -22,13 +22,22 @@
               <span class="dot" aria-hidden="true"></span>
               <span>{{ .Site.Params.handle }}</span>
             </p>
+            <ul class="social-row">
+              {{ range .Site.Params.social }}
+              <li>
+                <a href="{{ .url }}" aria-label="{{ .name }}" title="{{ .name }}"{{ if not (hasPrefix .url "mailto:") }} target="_blank" rel="me noopener noreferrer"{{ else }} rel="me"{{ end }}>
+                  {{ partial "icon.html" .icon }}
+                </a>
+              </li>
+              {{ end }}
+            </ul>
           </div>
         </div>
 
         <div class="face face-back">
           <p class="kicker">Say hello</p>
           <ul class="contact-list">
-            {{ range first 5 .Site.Params.social }}
+            {{ range .Site.Params.social }}
             <li>
               <a href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} target="_blank" rel="me noopener noreferrer"{{ else }} rel="me"{{ end }}>
                 <span class="contact-name">{{ .name }}</span>
