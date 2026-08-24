@@ -1,8 +1,8 @@
 ---
-title: "Battlestation"
+title: "Uses"
 date: 2026-08-23
-description: "A clean workspace built around a MacBook Pro M4 Max and a 4K LG monitor."
-tags: ["battlestation", "setup", "workspace"]
+description: "What I use daily — hardware, software, and the setup behind the terminal."
+tags: ["uses", "setup", "workspace"]
 categories: ["about"]
 author: "Dominik Siejak"
 ---
