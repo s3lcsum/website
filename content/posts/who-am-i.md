@@ -29,7 +29,7 @@ I'm based in Spain, originally from Poland. I speak Polish, English, and Spanish
 
 ## Outside of Tech
 
-When I'm not staring at terminals, I play chess on [Lichess](https://lichess.org/@/s3lcsum). I'm also into IoT — my home runs a fairly extensive home-automation setup that I've built and iterated on over the years.
+When I'm not staring at terminals, I play chess on [Chess.com](https://www.chess.com/member/s3lcsum). I'm also into IoT — my home runs a fairly extensive home-automation setup that I've built and iterated on over the years.
 
 ## Find Me
 
@@ -38,5 +38,4 @@ When I'm not staring at terminals, I play chess on [Lichess](https://lichess.org
 - [LinkedIn](https://www.linkedin.com/in/dominiksiejak/) — professional stuff
 - [Telegram](https://t.me/s3lcsum) — fastest way to reach me
 - [WhatsApp](https://wa.me/34621020018) — also works
-- [Threads](https://www.threads.net/@_siewko) — occasional posts
 - Email: office@dominiksiejak.pl

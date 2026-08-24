@@ -119,22 +119,16 @@ weight = 6
 url = "https://wa.me/34621020018"
 
 [[params.social]]
-name = "threads"
-icon = "fa fa-2x fa-threads"
-weight = 6
-url = "https://www.threads.net/@_siewko"
-
-[[params.social]]
 name = "E-mail"
 icon = "fa fa-2x fa-envelope"
 weight = 7
 url = "mailto:office@dominiksiejak.pl"
 
 [[params.social]]
-name = "Lichess"
+name = "Chess.com"
 icon = "fa fa-2x fa-chess"
 weight = 7
-url = "https://lichess.org/@/s3lcsum"
+url = "https://www.chess.com/member/s3lcsum"
 
 [languages.en]
 label = ":en:"
