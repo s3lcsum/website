@@ -1,7 +1,9 @@
 {{ define "main" }}
 <article class="sheet">
   <header class="sheet-head">
+    {{ if isset .Params "date" }}
     <p class="kicker">{{ .Date.Format "January 2, 2006" }}</p>
+    {{ end }}
     <h1>{{ .Title }}</h1>
   </header>
   <div class="prose">

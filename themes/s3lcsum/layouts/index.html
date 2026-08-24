@@ -4,10 +4,9 @@
     <div
       class="bizcard"
       data-card
-      role="button"
       tabindex="0"
       aria-pressed="false"
-      aria-label="Flip business card"
+      aria-label="Business card. Press to flip."
     >
       <div class="bizcard-inner">
         <div class="face face-front">
@@ -40,12 +39,14 @@
           </ul>
           <div class="card-actions">
             <a class="btn btn-solid" href="{{ .Site.Params.vcard }}" download>Save contact</a>
-            <a class="btn btn-ghost" href="{{ "/cv/" | relURL }}">CV</a>
+            <a class="btn btn-ghost" href="{{ "/cv/" | relURL }}">View CV</a>
           </div>
         </div>
       </div>
     </div>
-    <p class="flip-hint">Tap the card to flip</p>
+    <p class="flip-hint">
+      <button type="button" data-flip>Tap the card to flip</button>
+    </p>
   </div>
 </section>
 {{ end }}

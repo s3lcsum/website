@@ -26,7 +26,3 @@ Everyone has that one desk they keep coming back to and tweaking. Here's mine.
 ## What's Not on the Desk
 
 The real infrastructure lives elsewhere — a homelab running Proxmox, Kubernetes, Cloudflare tunnels, and a stack of self-hosted services. The desk stays clean; the servers do the heavy lifting.
-
-## Photo
-
-*Coming soon — need to tidy the cables first.*

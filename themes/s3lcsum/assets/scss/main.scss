@@ -159,6 +159,7 @@ button {
 }
 
 .bizcard {
+  display: block;
   width: 100%;
   aspect-ratio: 1.68 / 1;
   border: 0;
@@ -344,6 +345,9 @@ button {
 .flip-hint {
   margin: 1.1rem 0 0;
   text-align: center;
+}
+
+.flip-hint button {
   font-family: var(--mono);
   font-size: 0.7rem;
   letter-spacing: 0.16em;
@@ -617,7 +621,7 @@ button {
 
   .bizcard {
     aspect-ratio: auto;
-    min-height: 520px;
+    height: 36rem;
   }
 
   .face-front {

@@ -1,17 +1,22 @@
 (function () {
   const card = document.querySelector("[data-card]");
-  if (card) {
-    const flip = () => {
-      const next = card.getAttribute("aria-pressed") !== "true";
-      card.setAttribute("aria-pressed", String(next));
-      card.classList.toggle("is-flipped", next);
-    };
+  const flippers = document.querySelectorAll("[data-card], [data-flip]");
 
-    card.addEventListener("click", (event) => {
+  const flip = () => {
+    if (!card) return;
+    const next = card.getAttribute("aria-pressed") !== "true";
+    card.setAttribute("aria-pressed", String(next));
+    card.classList.toggle("is-flipped", next);
+  };
+
+  flippers.forEach((el) => {
+    el.addEventListener("click", (event) => {
       if (event.target.closest("a")) return;
       flip();
     });
+  });
 
+  if (card) {
     card.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
