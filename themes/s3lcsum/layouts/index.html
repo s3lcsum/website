@@ -7,7 +7,6 @@
       </figure>
       <h1 class="title is-1 mt-5">{{ .Site.Params.author }}</h1>
       <h2 class="subtitle is-4 has-text-grey">{{ .Site.Params.info }}</h2>
-      <p class="is-size-5 has-text-grey-light mb-5">{{ .Site.Params.description }}</p>
       <div class="social-icons">
         {{ range .Site.Params.social }}
         <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}" class="mx-3">
@@ -15,26 +14,6 @@
         </a>
         {{ end }}
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="contact">
-  <div class="container has-text-centered">
-    <h3 class="title is-3">Get in Touch</h3>
-    <div class="buttons is-centered mt-5">
-      <a href="mailto:{{ .Site.Params.email }}" class="button is-link is-outlined is-medium">
-        <span class="icon"><i class="fas fa-envelope"></i></span>
-        <span>Email</span>
-      </a>
-      <a href="https://t.me/s3lcsum" class="button is-link is-outlined is-medium" target="_blank">
-        <span class="icon"><i class="fab fa-telegram"></i></span>
-        <span>Telegram</span>
-      </a>
-      <a href="https://www.linkedin.com/in/dominiksiejak/" class="button is-link is-outlined is-medium" target="_blank">
-        <span class="icon"><i class="fab fa-linkedin"></i></span>
-        <span>LinkedIn</span>
-      </a>
     </div>
   </div>
 </section>
