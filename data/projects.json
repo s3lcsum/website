@@ -1,44 +1,30 @@
 [
   {
-    "name": "Homelab Infrastructure",
-    "category": "Infrastructure",
-    "description": "Proxmox-based homelab running Kubernetes, Docker, and a full stack of self-hosted services. Automated with Terraform and Ansible.",
-    "tags": ["Proxmox", "Kubernetes", "Terraform", "Ansible"],
-    "url": ""
+    "name": "gitops",
+    "category": "Homelab",
+    "description": "The whole lab as one repo: Proxmox, OpenTofu, Docker stacks, Authentik, Vault, Grafana, MikroTik. Treated like production, not a junk drawer of compose files.",
+    "tags": ["OpenTofu", "Proxmox", "Authentik", "Vault"],
+    "url": "https://github.com/s3lcsum/gitops"
   },
   {
-    "name": "GitOps Pipeline",
-    "category": "CI/CD",
-    "description": "ArgoCD-based GitOps workflow for deploying applications to Kubernetes clusters. Includes Helm charts, Kyverno policies, and automated rollbacks.",
-    "tags": ["ArgoCD", "Helm", "Kyverno", "GitLab CI"],
-    "url": ""
+    "name": "headroom",
+    "category": "Agents",
+    "description": "Compress tool outputs, logs, and RAG chunks before they hit the model. Fewer tokens, same answers. Library, proxy, and MCP server.",
+    "tags": ["Python", "MCP", "LLM"],
+    "url": "https://github.com/s3lcsum/headroom"
   },
   {
-    "name": "Home Automation",
-    "category": "IoT",
-    "description": "Home Assistant setup with Zigbee2MQTT, MQTT broker, and Tasmota devices. Automated lighting, climate, and security.",
-    "tags": ["Home Assistant", "Zigbee2MQTT", "MQTT", "Tasmota"],
-    "url": ""
+    "name": "cassandra-snapshot-tools",
+    "category": "Ops",
+    "description": "Create, move, and restore keyspace snapshots across Apache and DataStax Cassandra clusters.",
+    "tags": ["Cassandra", "Shell"],
+    "url": "https://github.com/s3lcsum/cassandra-snapshot-tools"
   },
   {
-    "name": "Identity & Access Management",
-    "category": "Security",
-    "description": "Authentik-based identity provider with OIDC and LDAP integration. Centralized authentication for all homelab services.",
-    "tags": ["Authentik", "OIDC", "LDAP", "Vault"],
-    "url": ""
-  },
-  {
-    "name": "Observability Stack",
-    "category": "Monitoring",
-    "description": "Grafana, Prometheus, and VictoriaMetrics stack for monitoring infrastructure and applications. ELK stack for log aggregation.",
-    "tags": ["Grafana", "Prometheus", "VictoriaMetrics", "ELK"],
-    "url": ""
-  },
-  {
-    "name": "Network Infrastructure",
-    "category": "Networking",
-    "description": "MikroTik-based network with Tailscale and WireGuard tunnels. AdGuard for DNS filtering and split DNS configuration.",
-    "tags": ["MikroTik", "Tailscale", "WireGuard", "AdGuard"],
-    "url": ""
+    "name": "postgres-init",
+    "category": "Containers",
+    "description": "Postgres image that runs a bootstrap script on every start. Useful when you want a known database state without migrations.",
+    "tags": ["PostgreSQL", "Docker"],
+    "url": "https://github.com/s3lcsum/postgres-init"
   }
 ]

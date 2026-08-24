@@ -532,9 +532,12 @@ button {
   grid-template-columns: unquote("repeat(2, minmax(0, 1fr))");
 }
 
-.project-card h2 {
-  margin: 0 0 0.6rem;
-  font-size: 1.45rem;
+.project-card h2 a {
+  color: inherit;
+}
+
+.project-card h2 a:hover {
+  color: var(--copper-deep);
 }
 
 .project-card p {

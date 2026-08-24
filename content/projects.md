@@ -1,5 +1,5 @@
 ---
 title: "Projects"
-description: "Infrastructure and automation I've built and operate."
+description: "Things I actually shipped — not the same homelab listed six times."
 type: "projects"
 ---
