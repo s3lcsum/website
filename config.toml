@@ -15,7 +15,7 @@ enableEmoji = true
 author = "Dominik Siejak"
 description = "🥷 Ninja in IT"
 keywords = "blog,developer,personal"
-info = ["DevOps • Blockchain • IoT", "GCP • AWS • Kubernetes • ArgoCD"]
+info = "DevOps • Blockchain • IoT"
 avatarURL = "images/avatar.jpg"
 gravatar = "dreewniak@gmail.com"
 dateFormat = "January 2, 2006"
@@ -143,8 +143,3 @@ label = ":en:"
 name = "About"
 weight = 1
 url = "about/"
-
-[[languages.en.menu.main]]
-name = "Privacy"
-weight = 10
-url = "fb_privacy/"
