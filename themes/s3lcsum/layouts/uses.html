@@ -1,44 +1,35 @@
 {{ define "main" }}
-<section class="section">
-  <div class="container">
-    <h1 class="title is-2">Uses</h1>
-    <p class="subtitle is-5 has-text-grey mb-6">What I use daily — hardware, software, and the setup behind the terminal.</p>
+<article class="sheet">
+  <header class="sheet-head">
+    <p class="kicker">Setup</p>
+    <h1>{{ .Title }}</h1>
+  </header>
 
-    <div class="columns is-variable is-8">
-      <div class="column is-8">
-        <div class="content is-medium">
-          {{ .Content }}
-        </div>
-      </div>
-
-      <div class="column is-4">
-        <div class="box">
-          <h3 class="title is-5">Hardware</h3>
-          <div class="content">
-            <ul>
-              <li><strong>Laptop:</strong> MacBook Pro M4 Max 14" — 36GB RAM</li>
-              <li><strong>Display:</strong> LG 27UP850N-W 27" 4K</li>
-              <li><strong>Mouse:</strong> Logitech MX Master 3</li>
-              <li><strong>Keyboard:</strong> Apple Magic Keyboard</li>
-              <li><strong>Desk:</strong> Electric standing desk 120x60cm</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="box">
-          <h3 class="title is-5">Software</h3>
-          <div class="content">
-            <ul>
-              <li><strong>OS:</strong> macOS / Linux</li>
-              <li><strong>Shell:</strong> zsh</li>
-              <li><strong>Editor:</strong> Neovim / VS Code</li>
-              <li><strong>Containers:</strong> Docker Desktop</li>
-              <li><strong>Terminal:</strong> iTerm2 / Alacritty</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+  <div class="sheet-grid">
+    <div class="prose">
+      {{ .Content }}
     </div>
+    <aside class="facts">
+      <section>
+        <h2>Hardware</h2>
+        <dl>
+          <div><dt>Laptop</dt><dd>MacBook Pro M4 Max 14"</dd></div>
+          <div><dt>Display</dt><dd>LG 27" 4K</dd></div>
+          <div><dt>Mouse</dt><dd>Logitech MX Master 3</dd></div>
+          <div><dt>Keyboard</dt><dd>Apple Magic Keyboard</dd></div>
+          <div><dt>Desk</dt><dd>Standing desk 120×60</dd></div>
+        </dl>
+      </section>
+      <section>
+        <h2>Software</h2>
+        <dl>
+          <div><dt>OS</dt><dd>macOS / Linux</dd></div>
+          <div><dt>Shell</dt><dd>zsh</dd></div>
+          <div><dt>Editor</dt><dd>Neovim / VS Code</dd></div>
+          <div><dt>Terminal</dt><dd>iTerm2 / Alacritty</dd></div>
+        </dl>
+      </section>
+    </aside>
   </div>
-</section>
+</article>
 {{ end }}

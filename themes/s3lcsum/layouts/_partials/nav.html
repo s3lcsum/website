@@ -1,0 +1,12 @@
+<header class="mast">
+  <a class="mast-mark" href="{{ "/" | relURL }}">{{ .Site.Params.handle }}</a>
+  <button class="mast-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+    Menu
+  </button>
+  <nav id="site-nav" class="mast-nav" data-nav data-open="false" aria-label="Primary">
+    {{ $current := .RelPermalink }}
+    {{ range .Site.Menus.main }}
+    <a href="{{ .URL }}"{{ if eq $current .URL }} aria-current="page"{{ end }}>{{ .Name }}</a>
+    {{ end }}
+  </nav>
+</header>

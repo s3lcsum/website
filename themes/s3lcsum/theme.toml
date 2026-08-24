@@ -1,9 +1,9 @@
 name = "s3lcsum"
 license = "MIT"
 licenselink = "https://github.com/s3lcsum/website/blob/main/LICENSE"
-description = "Clean minimal portfolio theme for DevOps engineers"
-tags = ["portfolio", "minimal", "devops", "bulma"]
-features = ["dark mode", "responsive", "timeline"]
+description = "A calling-card theme: ink field, warm paper, copper type."
+tags = ["portfolio", "business-card", "minimal"]
+features = ["flippable card", "responsive", "vcard"]
 min_version = "0.100.0"
 
 [author]

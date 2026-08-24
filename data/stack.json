@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Cloud & network",
+    "items": ["AWS", "GCP", "Cloudflare", "VPC", "IAM", "EKS", "S3", "RDS"]
+  },
+  {
+    "name": "Infrastructure as code",
+    "items": ["Terraform", "OpenTofu", "HCL", "Ansible"]
+  },
+  {
+    "name": "CI/CD & GitOps",
+    "items": ["GitLab CI/CD", "Jenkins", "ArgoCD", "Helm", "Kyverno"]
+  },
+  {
+    "name": "Containers & orchestration",
+    "items": ["Kubernetes", "Docker", "Podman", "Kind", "Traefik", "Envoy"]
+  },
+  {
+    "name": "Homelab networking",
+    "items": ["MikroTik", "RouterOS", "Tailscale", "WireGuard", "AdGuard", "Pi-hole"]
+  },
+  {
+    "name": "Virtualization",
+    "items": ["Proxmox", "LXC", "KVM"]
+  },
+  {
+    "name": "Identity & security",
+    "items": ["Vault", "Authentik", "OIDC", "LDAP", "Smallstep PKI", "Let's Encrypt"]
+  },
+  {
+    "name": "Observability",
+    "items": ["Grafana", "Prometheus", "VictoriaMetrics", "ELK", "Dynatrace", "Datadog"]
+  },
+  {
+    "name": "Home automation",
+    "items": ["Home Assistant", "Zigbee2MQTT", "MQTT", "Tasmota", "n8n"]
+  },
+  {
+    "name": "Languages",
+    "items": ["Python", "Go", "Bash", "YAML", "HCL"]
+  }
+]

@@ -1,12 +1,11 @@
 {{ define "main" }}
-<section class="section">
-  <div class="container">
-    <article class="article">
-      <h1 class="title is-2">{{ .Title }}</h1>
-      <div class="content is-medium">
-        {{ .Content }}
-      </div>
-    </article>
+<article class="sheet">
+  <header class="sheet-head">
+    <p class="kicker">{{ .Date.Format "January 2, 2006" }}</p>
+    <h1>{{ .Title }}</h1>
+  </header>
+  <div class="prose">
+    {{ .Content }}
   </div>
-</section>
+</article>
 {{ end }}

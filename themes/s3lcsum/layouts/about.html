@@ -1,87 +1,50 @@
 {{ define "main" }}
-<section class="section">
-  <div class="container">
-    <h1 class="title is-2">About</h1>
-    <div class="columns is-variable is-8">
-      <div class="column is-8">
-        <div class="content is-medium">
-          {{ .Content }}
-        </div>
+<article class="sheet">
+  <header class="sheet-head">
+    <p class="kicker">About</p>
+    <h1>{{ .Title }}</h1>
+  </header>
 
-        {{ with .Site.Data.timeline }}
-        <h2 class="title is-3 mt-6">Experience</h2>
-        <div class="timeline">
-          {{ range . }}
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <p class="heading">{{ .dates }}</p>
-              <p class="title is-5">{{ .role }}</p>
-              <p class="subtitle is-6 has-text-grey">{{ .company }}</p>
-              {{ with .description }}<p>{{ . }}</p>{{ end }}
-            </div>
-          </div>
-          {{ end }}
-        </div>
-        {{ end }}
-
-        {{ with .Site.Data.education }}
-        <h2 class="title is-3 mt-6">Education</h2>
-        <div class="timeline">
-          {{ range . }}
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <p class="heading">{{ .dates }}</p>
-              <p class="title is-5">{{ .degree }}</p>
-              <p class="subtitle is-6 has-text-grey">{{ .school }}</p>
-              {{ with .description }}<p>{{ . }}</p>{{ end }}
-            </div>
-          </div>
-          {{ end }}
-        </div>
-        {{ end }}
-      </div>
-
-      <div class="column is-4">
-        <div class="box">
-          <h3 class="title is-5">Quick Facts</h3>
-          <div class="content">
-            <ul>
-              <li><strong>Location:</strong> Poland</li>
-              <li><strong>Languages:</strong> Polish, English (B2), Spanish (B1)</li>
-              <li><strong>Focus:</strong> DevOps, Cloud, GitOps, IoT</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="box">
-          <h3 class="title is-5">Interests</h3>
-          <div class="tags">
-            <span class="tag">Surfing</span>
-            <span class="tag">Longboarding</span>
-            <span class="tag">Cycling</span>
-            <span class="tag">Calisthenics</span>
-            <span class="tag">Chess</span>
-            <span class="tag">IoT</span>
-            <span class="tag">Sci-Fi</span>
-            <span class="tag">Languages</span>
-          </div>
-        </div>
-
-        <div class="box">
-          <h3 class="title is-5">Find Me</h3>
-          <div class="buttons">
-            {{ range .Site.Params.social }}
-            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="button is-small is-fullwidth is-ghost">
-              <span class="icon"><i class="{{ .icon }}"></i></span>
-              <span>{{ .name }}</span>
-            </a>
-            {{ end }}
-          </div>
-        </div>
-      </div>
+  <div class="sheet-grid">
+    <div class="prose">
+      {{ .Content }}
     </div>
+
+    <aside class="facts">
+      <section>
+        <h2>Quick facts</h2>
+        <dl>
+          <div><dt>Location</dt><dd>{{ .Site.Params.location }}</dd></div>
+          <div><dt>Role</dt><dd>{{ .Site.Params.role }} · {{ .Site.Params.company }}</dd></div>
+          <div><dt>Handle</dt><dd>{{ .Site.Params.handle }}</dd></div>
+          <div><dt>Languages</dt><dd>Polish, English, Spanish</dd></div>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Also</h2>
+        <ul class="chip-row">
+          <li>Surfing</li>
+          <li>Longboarding</li>
+          <li>Cycling</li>
+          <li>Calisthenics</li>
+          <li>Chess</li>
+          <li>Sci-fi</li>
+          <li>Homelab</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Find me</h2>
+        <ul class="link-stack">
+          {{ range .Site.Params.social }}
+          <li>
+            <a href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} target="_blank" rel="me noopener noreferrer"{{ else }} rel="me"{{ end }}>{{ .name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </section>
+    </aside>
   </div>
-</section>
+</article>
 {{ end }}

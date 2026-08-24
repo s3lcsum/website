@@ -1,85 +1,56 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Locale }}" data-theme="light">
+<html lang="{{ .Site.Language.Lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.info }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+  <title>{{ if .IsHome }}{{ .Site.Params.author }} — {{ .Site.Params.info }}{{ else }}{{ .Title }} — {{ .Site.Params.author }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <meta name="theme-color" content="#16120e">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Params.author }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta property="og:type" content="{{ if .IsHome }}profile{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ .Site.BaseURL }}images/avatar.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600&display=swap">
   {{ $scss := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $scss.RelPermalink }}">
+  {{ $js := resources.Get "js/site.js" | minify | fingerprint }}
+  <script defer src="{{ $js.RelPermalink }}"></script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥷</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ .Site.Params.author }}",
+    "jobTitle": "{{ .Site.Params.role }}",
+    "worksFor": { "@type": "Organization", "name": "{{ .Site.Params.company }}" },
+    "email": "{{ .Site.Params.email }}",
+    "url": "{{ .Site.BaseURL }}",
+    "image": "{{ .Site.BaseURL }}images/avatar.jpg",
+    "sameAs": [
+      "https://github.com/s3lcsum/",
+      "https://gitlab.com/s3lcsum/",
+      "https://www.linkedin.com/in/dominiksiejak/",
+      "https://t.me/s3lcsum",
+      "https://www.threads.net/@_siewko"
+    ]
+  }
+  </script>
 </head>
-<body>
-  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-    <div class="container">
-      <div class="navbar-brand">
-        <a class="navbar-item has-text-weight-bold" href="{{ .Site.BaseURL }}">
-          {{ .Site.Title }}
-        </a>
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-      <div id="navMenu" class="navbar-menu">
-        <div class="navbar-end">
-          {{ range .Site.Menus.main }}
-          <a class="navbar-item" href="{{ .URL }}">{{ .Name }}</a>
-          {{ end }}
-          <div class="navbar-item">
-            <button id="theme-toggle" class="button is-small is-ghost" aria-label="Toggle theme">
-              <span class="icon"><i class="fas fa-moon"></i></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
+<body class="{{ if .IsHome }}is-home{{ else }}is-page{{ end }}">
+  <div class="grain" aria-hidden="true"></div>
+  {{ partial "nav.html" . }}
   <main>
     {{ block "main" . }}{{ end }}
   </main>
-
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        &copy; {{ now.Year }} {{ .Site.Params.author }}
-      </p>
-    </div>
+  {{ if not .IsHome }}
+  <footer class="site-footer">
+    <p>{{ .Site.Params.handle }} · {{ .Site.Params.location }} · &copy; {{ now.Year }}</p>
   </footer>
-
-  <script>
-    const toggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-    const icon = toggle.querySelector('i');
-
-    function setTheme(theme) {
-      html.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    }
-
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-      setTheme(saved);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    }
-
-    toggle.addEventListener('click', () => {
-      setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-    });
-
-    const burger = document.querySelector('.navbar-burger');
-    const menu = document.getElementById('navMenu');
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('is-active');
-      menu.classList.toggle('is-active');
-    });
-  </script>
+  {{ end }}
 </body>
 </html>

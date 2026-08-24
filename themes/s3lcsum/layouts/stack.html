@@ -1,131 +1,22 @@
 {{ define "main" }}
-<section class="section">
-  <div class="container">
-    <h1 class="title is-2">Tech Stack</h1>
-    <p class="subtitle is-5 has-text-grey mb-6">Tools and technologies I work with daily.</p>
+<article class="sheet">
+  <header class="sheet-head">
+    <p class="kicker">Toolkit</p>
+    <h1>{{ .Title }}</h1>
+    <p class="lede">What I reach for when something needs to stay up.</p>
+  </header>
 
-    {{ $categories := dict
-      "Cloud & Network" (dict "icon" "fas fa-cloud" "items" (slice
-        (dict "name" "AWS" "icon" "fab fa-aws")
-        (dict "name" "GCP" "icon" "fab fa-google")
-        (dict "name" "Cloudflare" "icon" "fab fa-cloudflare")
-        (dict "name" "VPC" "icon" "fas fa-network-wired")
-        (dict "name" "IAM" "icon" "fas fa-id-card")
-        (dict "name" "EKS" "icon" "fas fa-cubes")
-        (dict "name" "S3" "icon" "fas fa-database")
-        (dict "name" "RDS" "icon" "fas fa-server")
-      ))
-      "Infrastructure as Code" (dict "icon" "fas fa-code" "items" (slice
-        (dict "name" "Terraform" "icon" "fas fa-cubes")
-        (dict "name" "OpenTofu" "icon" "fas fa-cube")
-        (dict "name" "HCL" "icon" "fas fa-file-code")
-      ))
-      "CI/CD & GitOps" (dict "icon" "fas fa-sync-alt" "items" (slice
-        (dict "name" "GitLab CI/CD" "icon" "fab fa-gitlab")
-        (dict "name" "Jenkins" "icon" "fas fa-cogs")
-        (dict "name" "ArgoCD" "icon" "fas fa-anchor")
-        (dict "name" "Helm" "icon" "fas fa-anchor")
-        (dict "name" "Kyverno" "icon" "fas fa-shield-alt")
-      ))
-      "Containers & Orchestration" (dict "icon" "fas fa-th-large" "items" (slice
-        (dict "name" "Docker" "icon" "fab fa-docker")
-        (dict "name" "Podman" "icon" "fas fa-box")
-        (dict "name" "Kubernetes" "icon" "fas fa-dharmachakra")
-        (dict "name" "Kind" "icon" "fas fa-cubes")
-        (dict "name" "Traefik" "icon" "fas fa-exchange-alt")
-        (dict "name" "Envoy" "icon" "fas fa-route")
-      ))
-      "Networking (Homelab)" (dict "icon" "fas fa-ethernet" "items" (slice
-        (dict "name" "MikroTik" "icon" "fas fa-router")
-        (dict "name" "RouterOS" "icon" "fas fa-network-wired")
-        (dict "name" "Tailscale" "icon" "fas fa-lock")
-        (dict "name" "WireGuard" "icon" "fas fa-key")
-        (dict "name" "AdGuard" "icon" "fas fa-shield-alt")
-        (dict "name" "Pi-hole" "icon" "fas fa-ban")
-      ))
-      "PKI & Certificates" (dict "icon" "fas fa-certificate" "items" (slice
-        (dict "name" "Smallstep PKI" "icon" "fas fa-certificate")
-        (dict "name" "Let's Encrypt" "icon" "fas fa-lock")
-        (dict "name" "TLS" "icon" "fas fa-shield-alt")
-      ))
-      "Virtualization" (dict "icon" "fas fa-desktop" "items" (slice
-        (dict "name" "Proxmox" "icon" "fas fa-server")
-        (dict "name" "LXC" "icon" "fas fa-box")
-        (dict "name" "KVM" "icon" "fas fa-desktop")
-      ))
-      "Homelab Services" (dict "icon" "fas fa-home" "items" (slice
-        (dict "name" "Portainer" "icon" "fas fa-th")
-        (dict "name" "Authentik" "icon" "fas fa-fingerprint")
-        (dict "name" "Home Assistant" "icon" "fas fa-home")
-        (dict "name" "Zigbee2MQTT" "icon" "fas fa-broadcast-tower")
-        (dict "name" "MQTT" "icon" "fas fa-exchange-alt")
-        (dict "name" "MinIO" "icon" "fas fa-database")
-        (dict "name" "Tasmota" "icon" "fas fa-microchip")
-        (dict "name" "n8n" "icon" "fas fa-project-diagram")
-      ))
-      "Observability" (dict "icon" "fas fa-chart-line" "items" (slice
-        (dict "name" "Grafana" "icon" "fas fa-chart-area")
-        (dict "name" "Prometheus" "icon" "fas fa-fire")
-        (dict "name" "VictoriaMetrics" "icon" "fas fa-database")
-        (dict "name" "Dynatrace" "icon" "fas fa-eye")
-        (dict "name" "Datadog" "icon" "fas fa-dog")
-        (dict "name" "ELK Stack" "icon" "fas fa-search")
-        (dict "name" "Fluentd" "icon" "fas fa-filter")
-      ))
-      "Monitoring & Uptime" (dict "icon" "fas fa-heartbeat" "items" (slice
-        (dict "name" "Uptime Kuma" "icon" "fas fa-heartbeat")
-        (dict "name" "WatchYourLAN" "icon" "fas fa-eye")
-      ))
-      "Identity & Security" (dict "icon" "fas fa-shield-alt" "items" (slice
-        (dict "name" "Vault" "icon" "fas fa-vault")
-        (dict "name" "OIDC" "icon" "fas fa-id-badge")
-        (dict "name" "LDAP" "icon" "fas fa-users")
-        (dict "name" "Authentik" "icon" "fas fa-fingerprint")
-      ))
-      "OS & Shell" (dict "icon" "fas fa-terminal" "items" (slice
-        (dict "name" "Linux" "icon" "fab fa-linux")
-        (dict "name" "macOS" "icon" "fab fa-apple")
-        (dict "name" "Bash" "icon" "fas fa-terminal")
-        (dict "name" "zsh" "icon" "fas fa-terminal")
-        (dict "name" "Git" "icon" "fab fa-git-alt")
-      ))
-      "Languages" (dict "icon" "fas fa-code" "items" (slice
-        (dict "name" "Python" "icon" "fab fa-python")
-        (dict "name" "Go" "icon" "fab fa-golang")
-        (dict "name" "Bash" "icon" "fas fa-terminal")
-        (dict "name" "HCL" "icon" "fas fa-file-code")
-        (dict "name" "YAML" "icon" "fas fa-file-alt")
-        (dict "name" "JSON" "icon" "fas fa-brackets-curly")
-      ))
-      "Blockchain" (dict "icon" "fab fa-ethereum" "items" (slice
-        (dict "name" "Ethereum" "icon" "fab fa-ethereum")
-        (dict "name" "Solidity" "icon" "fas fa-file-contract")
-      ))
-      "Misc Self-Hosted" (dict "icon" "fas fa-server" "items" (slice
-        (dict "name" "CUPS" "icon" "fas fa-print")
-        (dict "name" "OctoPrint" "icon" "fas fa-cube")
-        (dict "name" "netboot.xyz" "icon" "fas fa-download")
-      ))
-    }}
-
-    {{ range $category, $data := $categories }}
-    <div class="mb-6">
-      <h2 class="title is-4">
-        <span class="icon-text">
-          <span class="icon"><i class="{{ $data.icon }}"></i></span>
-          <span>{{ $category }}</span>
-        </span>
-      </h2>
-      <div class="tags are-medium">
-        {{ range $data.items }}
-        <span class="tag is-light is-info">
-          <span class="icon is-small mr-1"><i class="{{ .icon }}"></i></span>
-          {{ .name }}
-        </span>
+  <div class="stack-list">
+    {{ range .Site.Data.stack }}
+    <section class="stack-block">
+      <h2>{{ .name }}</h2>
+      <ul class="chip-row">
+        {{ range .items }}
+        <li>{{ . }}</li>
         {{ end }}
-      </div>
-    </div>
+      </ul>
+    </section>
     {{ end }}
   </div>
-</section>
+</article>
 {{ end }}

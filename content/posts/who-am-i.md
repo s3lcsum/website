@@ -25,7 +25,7 @@ My stack revolves around:
 
 I started tinkering with computers young. One thing led to another — self-hosting, home labs, automating everything that moves. I've been running my own infrastructure for years now: home automation, self-hosted services, tunnels, DNS, the whole stack.
 
-I'm based in Spain, originally from Poland. I speak Polish, English, and Spanish.
+I'm based in Poland, after a stretch in Spain. I speak Polish, English, and Spanish.
 
 ## Outside of Tech
 

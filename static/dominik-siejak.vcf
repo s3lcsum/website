@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Dominik Siejak
+N:Siejak;Dominik;;;
+ORG:InPost
+TITLE:DevOps Engineer
+EMAIL;TYPE=WORK:office@dominiksiejak.pl
+TEL;TYPE=CELL:+34621020018
+URL:https://dominiksiejak.pl
+URL:https://github.com/s3lcsum
+X-SOCIALPROFILE;TYPE=telegram:https://t.me/s3lcsum
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/dominiksiejak/
+ADR;TYPE=HOME:;;Poland;;;;
+NOTE:I build infrastructure that stays up.
+END:VCARD

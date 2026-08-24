@@ -1,6 +1,6 @@
 ---
 title: "About"
-description: "DevOpsSec engineer, infrastructure nerd, and remote work enthusiast."
+description: "DevOps engineer at InPost. Polish, remote, and allergic to manual work."
 type: "about"
 ---
 

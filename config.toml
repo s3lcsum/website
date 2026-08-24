@@ -3,80 +3,100 @@ title = "Dominik Siejak"
 theme = "s3lcsum"
 locale = "en"
 defaultContentLanguage = "en"
-paginate = 20
-pygmentsStyle = "bw"
-pygmentsCodeFences = true
-pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
+disableHugoGeneratorInject = true
+
+[pagination]
+pagerSize = 20
 
 [params]
 author = "Dominik Siejak"
-description = "DevOpsSec engineer specializing in cloud infrastructure, container orchestration, and automation. I build infrastructure that stays up."
-keywords = "devops,cloud,kubernetes,terraform,portfolio"
-info = "DevOps • Cloud • Automation"
-avatarURL = "images/avatar.jpg"
+description = "DevOps engineer at InPost. I build infrastructure that stays up — and automate everything that doesn't need a human."
+keywords = "devops,kubernetes,terraform,homelab,dominik siejak"
+info = "DevOps Engineer"
+role = "DevOps Engineer"
+company = "InPost"
+tagline = "I build infrastructure that stays up."
+lede = "If a task can be scripted, it will be. If a process can be automated, it already is."
+location = "Poland"
+handle = "s3lcsum"
+avatarURL = "/images/avatar.jpg"
 email = "office@dominiksiejak.pl"
+vcard = "/dominik-siejak.vcf"
 dateFormat = "January 2, 2006"
 since = 2017
-commit = "https://github.com/s3lcsum/website"
 
 [params.csp]
 childsrc = ["'self'"]
-fontsrc = ["'self'", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net/"]
+fontsrc = ["'self'", "https://fonts.gstatic.com"]
 formaction = ["'self'"]
 framesrc = ["'self'"]
-imgsrc = ["'self'", "'unsafe-inline'", "https://www.gravatar.com", "https://img.shields.io"]
+imgsrc = ["'self'"]
 objectsrc = ["'none'"]
-stylesrc = ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com/", "https://cdn.jsdelivr.net/", "https://cdnjs.cloudflare.com/"]
-scriptsrc = ["'self'", "'unsafe-inline'", "https://www.google-analytics.com", "https://static.cloudflareinsight.com"]
+stylesrc = ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com/"]
+scriptsrc = ["'self'", "'unsafe-inline'"]
 prefetchsrc = ["'self'"]
-connectsrc = ["'self'", "https://www.google-analytics.com"]
+connectsrc = ["'self'"]
 
 [taxonomies]
 category = "categories"
 tag = "tags"
 
 [[params.social]]
-name = "GitHub"
-icon = "fab fa-github"
+name = "Email"
+icon = "mail"
 weight = 1
-url = "https://github.com/s3lcsum/"
-
-[[params.social]]
-name = "GitLab"
-icon = "fab fa-gitlab"
-weight = 2
-url = "https://gitlab.com/s3lcsum/"
-
-[[params.social]]
-name = "LinkedIn"
-icon = "fab fa-linkedin"
-weight = 3
-url = "https://www.linkedin.com/in/dominiksiejak/"
+url = "mailto:office@dominiksiejak.pl"
+short = "office@dominiksiejak.pl"
 
 [[params.social]]
 name = "Telegram"
-icon = "fab fa-telegram"
-weight = 4
+icon = "telegram"
+weight = 2
 url = "https://t.me/s3lcsum"
+short = "t.me/s3lcsum"
+
+[[params.social]]
+name = "GitHub"
+icon = "github"
+weight = 3
+url = "https://github.com/s3lcsum/"
+short = "github.com/s3lcsum"
+
+[[params.social]]
+name = "LinkedIn"
+icon = "linkedin"
+weight = 4
+url = "https://www.linkedin.com/in/dominiksiejak/"
+short = "linkedin.com/in/dominiksiejak"
 
 [[params.social]]
 name = "WhatsApp"
-icon = "fab fa-whatsapp"
+icon = "whatsapp"
 weight = 5
 url = "https://wa.me/34621020018"
+short = "WhatsApp"
 
 [[params.social]]
-name = "Email"
-icon = "fas fa-envelope"
+name = "GitLab"
+icon = "gitlab"
 weight = 6
-url = "mailto:office@dominiksiejak.pl"
+url = "https://gitlab.com/s3lcsum/"
+short = "gitlab.com/s3lcsum"
+
+[[params.social]]
+name = "Threads"
+icon = "threads"
+weight = 7
+url = "https://www.threads.net/@_siewko"
+short = "@_siewko"
 
 [[params.social]]
 name = "Chess.com"
-icon = "fas fa-chess"
-weight = 7
+icon = "chess"
+weight = 8
 url = "https://www.chess.com/member/s3lcsum"
+short = "chess.com/s3lcsum"
 
 [languages.en]
 label = "English"
@@ -97,11 +117,11 @@ weight = 3
 url = "/projects/"
 
 [[languages.en.menu.main]]
-name = "CV"
-weight = 5
-url = "/cv/"
-
-[[languages.en.menu.main]]
 name = "Uses"
 weight = 4
 url = "/uses/"
+
+[[languages.en.menu.main]]
+name = "CV"
+weight = 5
+url = "/cv/"

@@ -1,125 +1,93 @@
 {{ define "main" }}
-<section class="section cv-section">
-  <div class="container">
-    <div class="cv-container">
-      <header class="cv-header">
-        <div class="cv-header-content">
-          <h1 class="title is-1 cv-name">{{ .Site.Params.author }}</h1>
-          <p class="subtitle is-4 cv-title">{{ .Site.Params.info }}</p>
-          <div class="cv-contact">
-            <a href="mailto:{{ .Site.Params.email }}">
-              <span class="icon"><i class="fas fa-envelope"></i></span>
-              {{ .Site.Params.email }}
-            </a>
-            <a href="https://t.me/s3lcsum" target="_blank">
-              <span class="icon"><i class="fab fa-telegram"></i></span>
-              @s3lcsum
-            </a>
-            <a href="https://www.linkedin.com/in/dominiksiejak/" target="_blank">
-              <span class="icon"><i class="fab fa-linkedin"></i></span>
-              LinkedIn
-            </a>
-            <a href="https://github.com/s3lcsum/" target="_blank">
-              <span class="icon"><i class="fab fa-github"></i></span>
-              GitHub
-            </a>
-            <span class="cv-location">
-              <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
-              Poland
-            </span>
-          </div>
+<article class="sheet cv-sheet">
+  <header class="cv-top">
+    <p class="kicker">Curriculum vitae</p>
+    <h1>{{ .Site.Params.author }}</h1>
+    <p class="cv-role">{{ .Site.Params.role }} · {{ .Site.Params.company }}</p>
+    <p class="cv-contacts">
+      <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+      <span class="dot" aria-hidden="true"></span>
+      <a href="https://t.me/s3lcsum" target="_blank" rel="noopener noreferrer">@s3lcsum</a>
+      <span class="dot" aria-hidden="true"></span>
+      <span>{{ .Site.Params.location }}</span>
+    </p>
+    <div class="card-actions">
+      <a class="btn btn-solid" href="{{ .Site.Params.vcard }}" download>Save contact</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/dominiksiejak/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </header>
+
+  <section class="cv-block">
+    <h2>Experience</h2>
+    {{ range .Site.Data.timeline }}
+    <div class="cv-item">
+      <div class="cv-item-head">
+        <div>
+          <h3>{{ .role }}</h3>
+          <p class="cv-company">{{ .company }}</p>
         </div>
-      </header>
+        <p class="cv-dates">{{ .dates }}</p>
+      </div>
+      <p>{{ .description }}</p>
+    </div>
+    {{ end }}
+  </section>
 
-      <div class="cv-body">
-        <section class="cv-block">
-          <h2 class="cv-block-title">Experience</h2>
-          {{ range .Site.Data.timeline }}
-          <div class="cv-item">
-            <div class="cv-item-header">
-              <div class="cv-item-left">
-                <h3 class="cv-item-role">{{ .role }}</h3>
-                <span class="cv-item-company">{{ .company }}</span>
-              </div>
-              <span class="cv-item-dates">{{ .dates }}</span>
-            </div>
-            <p class="cv-item-desc">{{ .description }}</p>
-          </div>
-          {{ end }}
-        </section>
+  {{ with .Site.Data.education }}
+  {{ if gt (len .) 0 }}
+  <section class="cv-block">
+    <h2>Education</h2>
+    {{ range . }}
+    <div class="cv-item">
+      <div class="cv-item-head">
+        <div>
+          <h3>{{ .degree }}</h3>
+          <p class="cv-company">{{ .school }}</p>
+        </div>
+        <p class="cv-dates">{{ .dates }}</p>
+      </div>
+      {{ with .description }}<p>{{ . }}</p>{{ end }}
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+  {{ end }}
 
-        {{ with .Site.Data.education }}
-        <section class="cv-block">
-          <h2 class="cv-block-title">Education</h2>
-          {{ range . }}
-          <div class="cv-item">
-            <div class="cv-item-header">
-              <div class="cv-item-left">
-                <h3 class="cv-item-role">{{ .degree }}</h3>
-                <span class="cv-item-company">{{ .school }}</span>
-              </div>
-              <span class="cv-item-dates">{{ .dates }}</span>
-            </div>
-            {{ with .description }}<p class="cv-item-desc">{{ . }}</p>{{ end }}
-          </div>
-          {{ end }}
-        </section>
-        {{ end }}
+  <section class="cv-block">
+    <h2>Skills</h2>
+    <div class="cv-skills">
+      {{ range first 6 .Site.Data.stack }}
+      <div>
+        <h3>{{ .name }}</h3>
+        <p>{{ delimit .items " · " }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </section>
 
-        <section class="cv-block">
-          <h2 class="cv-block-title">Skills</h2>
-          <div class="cv-skills-grid">
-            <div class="cv-skill-col">
-              <h4 class="cv-skill-label">Cloud & Infrastructure</h4>
-              <p>AWS · GCP · Cloudflare · VPC · IAM · EKS · S3 · RDS · Proxmox · LXC · KVM</p>
-            </div>
-            <div class="cv-skill-col">
-              <h4 class="cv-skill-label">Orchestration & GitOps</h4>
-              <p>Kubernetes · ArgoCD · Helm · Terraform · OpenTofu · Kyverno · GitLab CI · Jenkins</p>
-            </div>
-            <div class="cv-skill-col">
-              <h4 class="cv-skill-label">Containers & Networking</h4>
-              <p>Docker · Podman · Kind · Traefik · Envoy · MikroTik · Tailscale · WireGuard · AdGuard</p>
-            </div>
-            <div class="cv-skill-col">
-              <h4 class="cv-skill-label">Observability</h4>
-              <p>Grafana · Prometheus · VictoriaMetrics · ELK Stack · Dynatrace · Datadog · Fluentd</p>
-            </div>
-            <div class="cv-skill-col">
-              <h4 class="cv-skill-label">Security & Identity</h4>
-              <p>Vault · OIDC · LDAP · Authentik · Smallstep PKI · Let's Encrypt · TLS</p>
-            </div>
-            <div class="cv-skill-col">
-              <h4 class="cv-skill-label">Languages & Automation</h4>
-              <p>Python · Go · Bash · HCL · YAML · JSON · n8n · Home Assistant · Zigbee2MQTT</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="cv-block">
-          <h2 class="cv-block-title">Certifications</h2>
-          <div class="cv-certs">
-            <div class="cv-cert">
-              <span class="cv-cert-name">Cisco Networking Essentials</span>
-              <span class="cv-cert-org">Cisco</span>
-            </div>
-            <div class="cv-cert">
-              <span class="cv-cert-name">Europejski Certyfikat Umiejętności Komputerowych (ECDL)</span>
-              <span class="cv-cert-org">Polskie Towarzystwo Informatyczne · Apr 2016</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="cv-block">
-          <h2 class="cv-block-title">Languages</h2>
-          <div class="cv-languages">
-            <span><strong>Polish</strong> — Native</span>
-            <span><strong>English</strong> — Full Professional</span>
-            <span><strong>Spanish</strong> — Professional Working</span>
-          </div>
-        </section>
+  <section class="cv-block">
+    <h2>Certifications</h2>
+    <div class="cv-item">
+      <div class="cv-item-head">
+        <h3>Cisco Networking Essentials</h3>
+        <p class="cv-dates">Cisco</p>
       </div>
     </div>
-  </div>
-</section>
+    <div class="cv-item">
+      <div class="cv-item-head">
+        <h3>Europejski Certyfikat Umiejętności Komputerowych (ECDL)</h3>
+        <p class="cv-dates">PTI · 2016</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-block">
+    <h2>Languages</h2>
+    <ul class="chip-row">
+      <li>Polish — native</li>
+      <li>English — professional</li>
+      <li>Spanish — working</li>
+    </ul>
+  </section>
+</article>
 {{ end }}

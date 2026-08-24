@@ -1,20 +1,51 @@
 {{ define "main" }}
-<section class="hero is-fullheight-with-navbar">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <figure class="image is-128x128 avatar-container">
-        <img class="is-rounded" src="/images/avatar.jpg" alt="{{ .Site.Params.author }}">
-      </figure>
-      <h1 class="title is-1 mt-5">{{ .Site.Params.author }}</h1>
-      <h2 class="subtitle is-4 has-text-grey">{{ .Site.Params.info }}</h2>
-      <div class="social-icons">
-        {{ range .Site.Params.social }}
-        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}" class="mx-3">
-          <span class="icon is-large"><i class="{{ .icon }} fa-2x"></i></span>
-        </a>
-        {{ end }}
+<section class="stage">
+  <div class="card-wrap">
+    <div
+      class="bizcard"
+      data-card
+      role="button"
+      tabindex="0"
+      aria-pressed="false"
+      aria-label="Flip business card"
+    >
+      <div class="bizcard-inner">
+        <div class="face face-front">
+          <figure class="stamp">
+            <img src="{{ .Site.Params.avatarURL }}" alt="{{ .Site.Params.author }}">
+          </figure>
+          <div class="identity">
+            <p class="kicker">{{ .Site.Params.role }} · {{ .Site.Params.company }}</p>
+            <h1>{{ .Site.Params.author }}</h1>
+            <p class="lede">{{ .Site.Params.lede }}</p>
+            <p class="meta">
+              <span>{{ .Site.Params.location }}</span>
+              <span class="dot" aria-hidden="true"></span>
+              <span>{{ .Site.Params.handle }}</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="face face-back">
+          <p class="kicker">Say hello</p>
+          <ul class="contact-list">
+            {{ range first 5 .Site.Params.social }}
+            <li>
+              <a href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} target="_blank" rel="me noopener noreferrer"{{ else }} rel="me"{{ end }}>
+                <span class="contact-name">{{ .name }}</span>
+                <span class="contact-short">{{ .short }}</span>
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+          <div class="card-actions">
+            <a class="btn btn-solid" href="{{ .Site.Params.vcard }}" download>Save contact</a>
+            <a class="btn btn-ghost" href="{{ "/cv/" | relURL }}">CV</a>
+          </div>
+        </div>
       </div>
     </div>
+    <p class="flip-hint">Tap the card to flip</p>
   </div>
 </section>
 {{ end }}
