@@ -1,32 +1,30 @@
 ---
 title: "About"
-description: "DevOpsSec engineer specializing in cloud infrastructure, container orchestration, and automation."
+description: "DevOpsSec engineer, infrastructure nerd, and remote work enthusiast."
 type: "about"
 ---
 
-## What I Do
+I'm Dominik — 27, Polish, currently based in Poland. I do DevOpsSec: cloud infrastructure, Kubernetes, Terraform, GitLab CI/CD, Grafana, Bash. The kind of work where if everything's running smoothly, nobody notices you exist — and that's the point.
 
-I build and operate infrastructure that stays up. Cloud-native tooling, container orchestration, GitOps workflows, and IoT integrations — from code to production.
+I'm all about automating workflows to maximize my chill time. If a task can be scripted, it will be. If a process can be automated, it already is.
 
-Day to day, I work with cloud platforms (GCP, AWS), container orchestration (Kubernetes, ArgoCD, Helm), infrastructure as code (Terraform, OpenTofu), and automation tools. The kind of work where if everything's running smoothly, nobody notices you exist — and that's the point.
+## Outside the Terminal
 
-## How I Got Here
+When I'm not staring at screens, I'm usually on a board — surfing, longboarding — or on a bike. I do calisthenics to keep things balanced. I'm a vegetarian with ADHD, which means I need variety in everything, including sports.
 
-I started tinkering with computers young. One thing led to another — self-hosting, home labs, automating everything that moves. I've been running my own infrastructure for years now: home automation, self-hosted services, tunnels, DNS, the whole stack.
+I'm a big sci-fi fan. Frank Herbert is my guy. I'm also into self-development books and living the remote life.
 
-## Outside of Tech
+## Renovating
 
-When I'm not staring at terminals, I play chess on [Chess.com](https://www.chess.com/member/s3lcsum). I'm also into IoT — my home runs a fairly extensive home-automation setup that I've built and iterated on over the years.
-
-I'm a vegetarian with ADHD, always diving into new sports like surfing, longboarding, cycling, and calisthenics to keep things fresh. Keeping my space organized is a must, especially since I work from home.
-
-Beyond tech, I'm a big sci-fi fan — Frank Herbert is my guy. I love learning languages and can speak Polish, English (B2), and Spanish (B1), and I'm aiming for Italian, French, and Japanese down the line.
+Recently started renovating an old flat. It's a new kind of project — one where the problems don't have Stack Overflow answers.
 
 ## Languages
 
 - **Polish** — native
 - **English** — B2
 - **Spanish** — B1
-- **Italian** — learning
-- **French** — learning
-- **Japanese** — learning
+- **Italian, French, Japanese** — on the roadmap
+
+## The Dream
+
+One day, Australia. For now, Poland works.
