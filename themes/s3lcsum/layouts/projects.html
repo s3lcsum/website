@@ -1,0 +1,37 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <h1 class="title is-2">Projects</h1>
+    <p class="subtitle is-5 has-text-grey mb-6">Infrastructure and automation I've built and operate.</p>
+
+    <div class="columns is-multiline">
+      {{ range .Site.Data.projects }}
+      <div class="column is-6">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-5">{{ .name }}</p>
+            <p class="subtitle is-6 has-text-grey">{{ .category }}</p>
+            <div class="content">
+              <p>{{ .description }}</p>
+              <div class="tags">
+                {{ range .tags }}
+                <span class="tag is-light">{{ . }}</span>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+          {{ with .url }}
+          <footer class="card-footer">
+            <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="card-footer-item">
+              <span class="icon is-small mr-1"><i class="fab fa-github"></i></span>
+              Source
+            </a>
+          </footer>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

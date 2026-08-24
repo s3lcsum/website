@@ -1,0 +1,20 @@
+[
+  {
+    "role": "DevOpsSec Engineer",
+    "company": "Current Position",
+    "dates": "2023 — Present",
+    "description": "Cloud infrastructure, container orchestration, GitOps workflows, and security automation."
+  },
+  {
+    "role": "DevOps Engineer",
+    "company": "Previous Company",
+    "dates": "2021 — 2023",
+    "description": "Kubernetes cluster management, CI/CD pipeline development, and infrastructure automation."
+  },
+  {
+    "role": "Junior DevOps Engineer",
+    "company": "First Company",
+    "dates": "2019 — 2021",
+    "description": "Linux system administration, Docker containerization, and monitoring setup."
+  }
+]

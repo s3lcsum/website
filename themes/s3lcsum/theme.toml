@@ -1,0 +1,11 @@
+name = "s3lcsum"
+license = "MIT"
+licenselink = "https://github.com/s3lcsum/website/blob/main/LICENSE"
+description = "Clean minimal portfolio theme for DevOps engineers"
+tags = ["portfolio", "minimal", "devops", "bulma"]
+features = ["dark mode", "responsive", "timeline"]
+min_version = "0.100.0"
+
+[author]
+name = "Dominik Siejak"
+homepage = "https://dominiksiejak.pl"

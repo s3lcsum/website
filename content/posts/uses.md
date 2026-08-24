@@ -1,10 +1,7 @@
 ---
 title: "Uses"
-date: 2026-08-23
 description: "What I use daily — hardware, software, and the setup behind the terminal."
-tags: ["uses", "setup", "workspace"]
-categories: ["about"]
-author: "Dominik Siejak"
+type: "uses"
 ---
 
 Everyone has that one desk they keep coming back to and tweaking. Here's mine.

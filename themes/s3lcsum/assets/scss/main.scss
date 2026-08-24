@@ -1,0 +1,236 @@
+// Dark mode via CSS custom properties
+:root {
+  --bg: #ffffff;
+  --text: #363636;
+  --text-light: #7a7a7a;
+  --card-bg: #ffffff;
+  --border: #dbdbdb;
+  --navbar-bg: #ffffff;
+  --footer-bg: #fafafa;
+}
+
+[data-theme="dark"] {
+  --bg: #1a1a2e;
+  --text: #e0e0e0;
+  --text-light: #a0a0a0;
+  --card-bg: #16213e;
+  --border: #2a2a4a;
+  --navbar-bg: #1a1a2e;
+  --footer-bg: #0f0f23;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar {
+  background-color: var(--navbar-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-item {
+  color: var(--text);
+}
+
+.navbar-item:hover {
+  color: #3273dc;
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--border);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.box {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+.tag.is-light.is-info {
+  background-color: rgba(50, 115, 220, 0.1);
+  color: #3273dc;
+}
+
+[data-theme="dark"] .tag.is-light.is-info {
+  background-color: rgba(50, 115, 220, 0.2);
+  color: #5b9df9;
+}
+
+// Hero section
+.hero {
+  background-color: var(--bg) !important;
+}
+
+.avatar-container {
+  margin: 0 auto;
+}
+
+.avatar-container img {
+  border: 3px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons a {
+  color: var(--text-light);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: #3273dc;
+  transform: translateY(-2px);
+}
+
+// Timeline
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -1.75rem;
+  top: 0.25rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #3273dc;
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px #3273dc;
+}
+
+.timeline-content {
+  padding-left: 1rem;
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  .hero .title {
+    font-size: 2rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .social-icons a {
+    margin: 0 0.5rem;
+  }
+}
+
+// Theme toggle button
+#theme-toggle {
+  color: var(--text);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+#theme-toggle:hover {
+  background-color: var(--border);
+}
+
+// Content styling
+.content h2 {
+  color: var(--text);
+  margin-top: 2rem;
+}
+
+.content p {
+  color: var(--text);
+}
+
+.content ul {
+  color: var(--text);
+}
+
+// Buttons
+.button.is-outlined {
+  border-color: #3273dc;
+  color: #3273dc;
+}
+
+.button.is-outlined:hover {
+  background-color: #3273dc;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .button.is-outlined {
+  border-color: #5b9df9;
+  color: #5b9df9;
+}
+
+[data-theme="dark"] .button.is-outlined:hover {
+  background-color: #5b9df9;
+  color: #1a1a2e;
+}
+
+// Title colors
+.title {
+  color: var(--text);
+}
+
+.subtitle {
+  color: var(--text-light);
+}
+
+// Navbar burger
+.navbar-burger {
+  color: var(--text);
+}
+
+.navbar-burger:hover {
+  background-color: var(--border);
+}
+
+// Fix Bulma dark mode overrides
+[data-theme="dark"] .has-text-grey {
+  color: #a0a0a0 !important;
+}
+
+[data-theme="dark"] .has-text-grey-light {
+  color: #808080 !important;
+}
+
+[data-theme="dark"] .has-text-centered {
+  color: var(--text);
+}
+
+[data-theme="dark"] .footer p {
+  color: var(--text-light);
+}
