@@ -97,6 +97,11 @@ weight = 3
 url = "/projects/"
 
 [[languages.en.menu.main]]
+name = "CV"
+weight = 5
+url = "/cv/"
+
+[[languages.en.menu.main]]
 name = "Uses"
 weight = 4
 url = "/uses/"

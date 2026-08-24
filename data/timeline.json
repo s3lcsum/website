@@ -1,20 +1,26 @@
 [
   {
-    "role": "DevOpsSec Engineer",
-    "company": "Current Position",
-    "dates": "2023 — Present",
-    "description": "Cloud infrastructure, container orchestration, GitOps workflows, and security automation."
+    "role": "DevOps Engineer",
+    "company": "InPost",
+    "dates": "Nov 2025 — Present",
+    "description": "Full-time, remote. DevOps engineering for one of Poland's largest logistics and e-commerce platforms."
+  },
+  {
+    "role": "Senior SysDevOps Engineer",
+    "company": "UserTesting",
+    "dates": "Mar 2022 — Nov 2025",
+    "description": "Barcelona, Spain. Senior role combining systems administration and DevOps for a user research platform. AWS, ArgoCD, Kubernetes, and infrastructure automation."
   },
   {
     "role": "DevOps Engineer",
-    "company": "Previous Company",
-    "dates": "2021 — 2023",
-    "description": "Kubernetes cluster management, CI/CD pipeline development, and infrastructure automation."
+    "company": "Blockchain House",
+    "dates": "Jul 2017 — Dec 2023",
+    "description": "Contract role. AWS, MySQL, and blockchain infrastructure. Smart contract deployment and dApp infrastructure."
   },
   {
-    "role": "Junior DevOps Engineer",
-    "company": "First Company",
-    "dates": "2019 — 2021",
-    "description": "Linux system administration, Docker containerization, and monitoring setup."
+    "role": "Freelance Web Developer",
+    "company": "Self-employed",
+    "dates": "2015 — 2018",
+    "description": "Created custom plugins for games, developed backends for online applications, built smart home infrastructure (Zigbee, Proxmox, Portainer, Authentik, Home Assistant, Grafana Alloy). Designed multiple home data centers connected via VPN (Cloudflare WARP, WireGuard) and MikroTik RouterOS."
   }
 ]
