@@ -12,7 +12,7 @@ Everyone has that one desk they keep coming back to and tweaking. Here's mine.
 
 ## The Display
 
-**LG 27UP850N-W** — 27" UHD 4K IPS. USB-C with 96W power delivery, so the MacBook charges and outputs video over a single cable. Color accuracy is solid for the price point. I keep the laptop open as a secondary screen for terminals and chat.
+**LG 27UP850N-W** — 27" UHD 4K IPS. USB-C with 96W power delivery, so the MacBook charges and outputs video over a single cable. Color accuracy is solid for the price point. One screen at a time — I never run the laptop display alongside it.
 
 ## Input
 

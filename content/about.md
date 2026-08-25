@@ -10,7 +10,7 @@ I'm all about automating workflows to maximize my chill time. If a task can be s
 
 ## Outside the Terminal
 
-When I'm not staring at screens, I'm usually on a board — surfing, longboarding — or on a bike. I do calisthenics to keep things balanced. I'm a vegetarian with ADHD, which means I need variety in everything, including sports.
+When I'm not staring at screens, I'm usually on a board — surfing, longboarding — or on a bike. I do calisthenics to keep things balanced. I need variety in everything, sports included.
 
 I'm a big sci-fi fan. Frank Herbert is my guy. I'm also into self-development books and living the remote life.
 
