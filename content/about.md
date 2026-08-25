@@ -4,7 +4,7 @@ description: "DevOps engineer at InPost. Polish, remote, and allergic to manual 
 type: "about"
 ---
 
-I'm Dominik — 27, Polish, currently based in Poland. I do DevOpsSec: cloud infrastructure, Kubernetes, Terraform, GitLab CI/CD, Grafana, Bash. The kind of work where if everything's running smoothly, nobody notices you exist — and that's the point.
+I'm Dominik — 30, Polish, currently based in Poland. I do DevOpsSec: cloud infrastructure, Kubernetes, Terraform, GitLab CI/CD, Grafana, Bash. The kind of work where if everything's running smoothly, nobody notices you exist — and that's the point.
 
 I'm all about automating workflows to maximize my chill time. If a task can be scripted, it will be. If a process can be automated, it already is.
 
