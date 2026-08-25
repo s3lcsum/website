@@ -1,0 +1,98 @@
+{
+  "stats": [
+    { "value": "23", "label": "Compose stacks" },
+    { "value": "13", "label": "OpenTofu modules" },
+    { "value": "52", "label": "Containers" },
+    { "value": "1", "label": "Repo of record" }
+  ],
+  "layers": [
+    {
+      "name": "Edge",
+      "what": "Traefik terminates TLS for every hostname on the domain, CrowdSec sits in front of it, and port 80 is a permanent redirect to HTTPS.",
+      "tools": ["Traefik", "CrowdSec", "Cloudflare Tunnel"]
+    },
+    {
+      "name": "Identity",
+      "what": "Authentik is the single sign-on for the whole lab — OAuth, SAML and LDAP, down to the NAS logins.",
+      "tools": ["Authentik", "OIDC", "LDAP"]
+    },
+    {
+      "name": "Compute",
+      "what": "Proxmox runs the LXC containers and VMs, declared in OpenTofu instead of clicked together in the web UI.",
+      "tools": ["Proxmox VE", "LXC", "OpenTofu"]
+    },
+    {
+      "name": "Kubernetes",
+      "what": "A Talos cluster provisioned from the Proxmox module, holding the platform workloads that outgrew Compose.",
+      "tools": ["Talos", "ArgoCD", "Calico"]
+    },
+    {
+      "name": "Network",
+      "what": "RouterOS is code as well — firewall rules and the WireGuard peers I use to get back in from outside.",
+      "tools": ["MikroTik", "RouterOS", "WireGuard"]
+    },
+    {
+      "name": "Inventory",
+      "what": "NetBox is the source of truth for devices, prefixes and VLANs, and it is managed as code like everything else.",
+      "tools": ["NetBox", "IPAM", "DCIM"]
+    },
+    {
+      "name": "Secrets",
+      "what": "Vault hands out the credentials stacks need at runtime, so nothing sensitive sits in git or in Terraform state.",
+      "tools": ["Vault", "Vaultwarden"]
+    },
+    {
+      "name": "Observability",
+      "what": "Grafana and VictoriaMetrics are provisioned from config, Blackbox probes 25+ endpoints, and alerts route to Telegram and email.",
+      "tools": ["Grafana", "VictoriaMetrics", "Blackbox", "Gatus"]
+    },
+    {
+      "name": "Home",
+      "what": "Home Assistant with Zigbee2MQTT and Mosquitto, plus n8n for the automations that stitch services together.",
+      "tools": ["Home Assistant", "Zigbee2MQTT", "n8n"]
+    },
+    {
+      "name": "Media",
+      "what": "Jellyfin and the *arr stack, with the downloaders routed through a VPN gateway container.",
+      "tools": ["Jellyfin", "Sonarr", "Radarr", "Gluetun"]
+    }
+  ],
+  "metal": [
+    {
+      "label": "Main server",
+      "value": "FIREBAT T8 Pro Plus mini PC — Intel N100, 16GB DDR5, 512GB SSD, running Proxmox VE"
+    },
+    {
+      "label": "Secondary",
+      "value": "Dell PowerEdge R610 — the experiment box, mostly powered down"
+    },
+    { "label": "Storage", "value": "Synology DS220+, 2 × 4TB — primary storage and backups" },
+    { "label": "Router", "value": "MikroTik hAP ac3 on RouterOS, handling DHCP and NTP" },
+    { "label": "Wireless", "value": "TP-Link Deco M4R ×3 mesh" },
+    { "label": "Uplink", "value": "300 Mb/s symmetric fibre" }
+  ],
+  "operations": [
+    {
+      "name": "One way to change things",
+      "what": "Every OpenTofu module carries the same Makefile — init, plan, apply, validate, fmt — and remote state lives in a GCS bucket."
+    },
+    {
+      "name": "Nothing on :latest",
+      "what": "Images and providers are pinned to explicit versions and bumped by Renovate, so an upgrade arrives as a reviewable diff instead of a surprise at 2am."
+    },
+    {
+      "name": "Guardrails before merge",
+      "what": "Pre-commit hooks run alongside consistency and security-invariant checks, so the obvious mistakes never reach the host."
+    },
+    {
+      "name": "Restore from the repo",
+      "what": "Stacks ship env templates and seed config, so a service comes back from git rather than from memory."
+    }
+  ],
+  "roadmap": [
+    "Move backups off Proxmox and onto the NAS",
+    "NUT/UPS integration so the lab survives a power cut",
+    "Isolate IoT devices onto their own subnet",
+    "Self-hosted LLM running on the cluster"
+  ]
+}

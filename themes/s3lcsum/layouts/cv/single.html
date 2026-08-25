@@ -19,7 +19,7 @@
 
   <section class="cv-block">
     <h2>Experience</h2>
-    {{ range .Site.Data.timeline }}
+    {{ range hugo.Data.timeline }}
     <div class="cv-item">
       <div class="cv-item-head">
         <div>
@@ -33,7 +33,7 @@
     {{ end }}
   </section>
 
-  {{ with .Site.Data.education }}
+  {{ with hugo.Data.education }}
   {{ if gt (len .) 0 }}
   <section class="cv-block">
     <h2>Education</h2>
@@ -56,7 +56,7 @@
   <section class="cv-block">
     <h2>Skills</h2>
     <div class="cv-skills">
-      {{ range first 6 .Site.Data.stack }}
+      {{ range first 6 hugo.Data.stack }}
       <div>
         <h3>{{ .name }}</h3>
         <p>{{ delimit .items " · " }}</p>

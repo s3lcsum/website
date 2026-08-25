@@ -112,9 +112,9 @@ weight = 2
 url = "/stack/"
 
 [[languages.en.menu.main]]
-name = "Projects"
+name = "Homelab"
 weight = 3
-url = "/projects/"
+url = "/homelab/"
 
 [[languages.en.menu.main]]
 name = "Uses"
