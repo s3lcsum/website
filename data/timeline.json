@@ -1,26 +1,32 @@
 [
   {
-    "role": "DevOps Engineer",
+    "role": "Senior SysDevOps Engineer",
     "company": "InPost",
     "dates": "Nov 2025 — Present",
-    "description": "Full-time, remote. DevOps engineering for one of Poland's largest logistics and e-commerce platforms."
+    "description": "Full-time, remote. My job is to automate as much of the company's manual work as possible. Built a Claude Code automation that cut JSM ticket turnaround from 2 weeks to 8 hours, removing a large overload from the team. Meanwhile migrating workloads from on-premises private datacenters to GCP."
   },
   {
     "role": "Senior SysDevOps Engineer",
-    "company": "UserTesting",
+    "company": "UserTesting (formerly UserZoom)",
     "dates": "Mar 2022 — Nov 2025",
-    "description": "Barcelona, Spain. Senior role combining systems administration and DevOps for a user research platform. AWS, ArgoCD, Kubernetes, and infrastructure automation."
+    "description": "Worked on the platform while it built brand-new infrastructure in AWS after the acquisition. Touching everything from designing IP subnets for all kinds of environments to operating the platform against proper standards."
   },
   {
     "role": "DevOps Engineer",
-    "company": "Blockchain House",
-    "dates": "Jul 2017 — Dec 2023",
-    "description": "Contract role. AWS, MySQL, and blockchain infrastructure. Smart contract deployment and dApp infrastructure."
+    "company": "MoreFrom IT",
+    "dates": "2020 — Feb 2022",
+    "description": "Migrated the platform from VM servers where apps were deployed with git pull to a properly built GKE infrastructure."
   },
   {
-    "role": "Freelance Web Developer",
+    "role": "PHP Developer",
+    "company": "MoreFrom IT",
+    "dates": "2018 — 2020",
+    "description": "First two years before DevOps, at the same company under its previous name. Built PHP applications, mostly in Laravel."
+  },
+  {
+    "role": "Freelance Developer",
     "company": "Self-employed",
     "dates": "2015 — 2018",
-    "description": "Created custom plugins for games, developed backends for online applications, built smart home infrastructure (Zigbee, Proxmox, Portainer, Authentik, Home Assistant, Grafana Alloy). Designed multiple home data centers connected via VPN (Cloudflare WARP, WireGuard) and MikroTik RouterOS."
+    "description": "Before graduating school I landed a few first contracts: simple websites, a simple Unity game, a simple mobile app in Xamarin, a simple desktop app in Electron, and some bigger CMS projects in Laravel."
   }
 ]

@@ -5,6 +5,8 @@
 {{ $companies := slice }}
 {{ range $timeline }}{{ $companies = $companies | append .company }}{{ end }}
 {{ $languages := hugo.Data.languages }}
+{{ $tech := 0 }}
+{{ range hugo.Data.stack }}{{ $tech = add $tech (len .items) }}{{ end }}
 <article class="sheet cv-sheet" data-cv>
   <div class="cv-progress" data-cv-progress aria-hidden="true"></div>
   <span class="cv-margin" aria-hidden="true">Curriculum Vitae — {{ .Site.Params.handle }} — {{ .Site.Params.location }}</span>
@@ -27,8 +29,8 @@
         <span class="stat-label">Years in the field</span>
       </li>
       <li>
-        <span class="stat-value" data-count-to="{{ len $timeline }}">0</span>
-        <span class="stat-label">Roles</span>
+        <span class="stat-value" data-count-to="{{ $tech }}">0</span>
+        <span class="stat-label">Technologies</span>
       </li>
       <li>
         <span class="stat-value" data-count-to="{{ len ($companies | uniq) }}">0</span>

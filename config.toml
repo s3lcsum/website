@@ -13,8 +13,8 @@ pagerSize = 20
 author = "Dominik Siejak"
 description = "DevOps engineer at InPost. I build infrastructure that stays up — and automate everything that doesn't need a human."
 keywords = "devops,kubernetes,terraform,homelab,dominik siejak"
-info = "DevOps Engineer"
-role = "DevOps Engineer"
+info = "Senior SysDevOps Engineer"
+role = "Senior SysDevOps Engineer"
 company = "InPost"
 tagline = "I build infrastructure that stays up."
 lede = "If a task can be scripted, it will be. If a process can be automated, it already is."
@@ -24,7 +24,7 @@ avatarURL = "/images/avatar.jpg"
 email = "office@dominiksiejak.pl"
 vcard = "/dominik-siejak.vcf"
 dateFormat = "January 2, 2006"
-since = 2017
+since = 2015
 
 [params.csp]
 childsrc = ["'self'"]

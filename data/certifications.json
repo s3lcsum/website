@@ -1,4 +1,6 @@
 [
   { "name": "Cisco Networking Essentials", "issuer": "Cisco", "date": "" },
-  { "name": "Europejski Certyfikat Umiejętności Komputerowych (ECDL)", "issuer": "PTI", "date": "2016" }
+  { "name": "Europejski Certyfikat Umiejętności Komputerowych (ECDL)", "issuer": "PTI", "date": "2016" },
+  { "name": "CKA", "issuer": "CNCF — in progress", "date": "" },
+  { "name": "CAPA (Certified Argo Project Associate)", "issuer": "CNCF — in progress", "date": "" }
 ]

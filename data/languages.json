@@ -1,5 +1,5 @@
 [
   { "name": "Polish", "level": "Native", "rating": 4 },
-  { "name": "English", "level": "Professional", "rating": 3 },
-  { "name": "Spanish", "level": "Working", "rating": 2 }
+  { "name": "English", "level": "B2/C1", "rating": 3 },
+  { "name": "Spanish", "level": "B1", "rating": 2 }
 ]
