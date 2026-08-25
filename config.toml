@@ -71,46 +71,32 @@ url = "https://www.chess.com/member/s3lcsum"
 short = "chess.com/s3lcsum"
 
 [[params.social]]
-name = "Lichess"
-icon = "lichess"
-weight = 5
-url = "https://lichess.org/@/s3lcsum"
-short = "lichess.org/@/s3lcsum"
-
-[[params.social]]
 name = "Telegram"
 icon = "telegram"
-weight = 6
+weight = 5
 url = "https://t.me/s3lcsum"
 short = "t.me/s3lcsum"
 
 [[params.social]]
 name = "GitHub"
 icon = "github"
-weight = 7
+weight = 6
 url = "https://github.com/s3lcsum/"
 short = "github.com/s3lcsum"
 
 [[params.social]]
 name = "GitLab"
 icon = "gitlab"
-weight = 8
+weight = 7
 url = "https://gitlab.com/s3lcsum/"
 short = "gitlab.com/s3lcsum"
 
 [[params.social]]
 name = "LinkedIn"
 icon = "linkedin"
-weight = 9
+weight = 8
 url = "https://www.linkedin.com/in/dominiksiejak/"
 short = "linkedin.com/in/dominiksiejak"
-
-[[params.social]]
-name = "Threads"
-icon = "threads"
-weight = 10
-url = "https://www.threads.net/@_siewko"
-short = "@_siewko"
 
 [languages.en]
 label = "English"
