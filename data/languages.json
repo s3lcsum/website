@@ -1,0 +1,5 @@
+[
+  { "name": "Polish", "level": "Native", "rating": 4 },
+  { "name": "English", "level": "Professional", "rating": 3 },
+  { "name": "Spanish", "level": "Working", "rating": 2 }
+]

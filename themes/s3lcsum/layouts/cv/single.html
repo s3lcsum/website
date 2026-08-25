@@ -1,5 +1,14 @@
 {{ define "main" }}
-<article class="sheet cv-sheet">
+{{ $romans := slice "I" "II" "III" "IV" "V" "VI" }}
+{{ $n := 0 }}
+{{ $timeline := hugo.Data.timeline }}
+{{ $companies := slice }}
+{{ range $timeline }}{{ $companies = $companies | append .company }}{{ end }}
+{{ $languages := hugo.Data.languages }}
+<article class="sheet cv-sheet" data-cv>
+  <div class="cv-progress" data-cv-progress aria-hidden="true"></div>
+  <span class="cv-margin" aria-hidden="true">Curriculum Vitae — {{ .Site.Params.handle }} — {{ .Site.Params.location }}</span>
+
   <header class="cv-top">
     <p class="kicker">Curriculum vitae</p>
     <h1>{{ .Site.Params.author }}</h1>
@@ -11,83 +20,126 @@
       <span class="dot" aria-hidden="true"></span>
       <span>{{ .Site.Params.location }}</span>
     </p>
+
+    <ul class="stat-strip cv-stat-strip">
+      <li>
+        <span class="stat-value" data-count-to="{{ sub now.Year .Site.Params.since }}">0</span>
+        <span class="stat-label">Years in the field</span>
+      </li>
+      <li>
+        <span class="stat-value" data-count-to="{{ len $timeline }}">0</span>
+        <span class="stat-label">Roles</span>
+      </li>
+      <li>
+        <span class="stat-value" data-count-to="{{ len ($companies | uniq) }}">0</span>
+        <span class="stat-label">Companies</span>
+      </li>
+      <li>
+        <span class="stat-value" data-count-to="{{ len $languages }}">0</span>
+        <span class="stat-label">Languages</span>
+      </li>
+    </ul>
+
     <div class="card-actions">
       <a class="btn btn-solid" href="{{ .Site.Params.vcard }}" download>Save contact</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/dominiksiejak/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </header>
 
+  {{ $n = add $n 1 }}
   <section class="cv-block">
-    <h2>Experience</h2>
-    {{ range hugo.Data.timeline }}
-    <div class="cv-item">
-      <div class="cv-item-head">
-        <div>
-          <h3>{{ .role }}</h3>
-          <p class="cv-company">{{ .company }}</p>
+    <h2 class="cv-section-head"><span class="cv-numeral">{{ index $romans (sub $n 1) }}</span>Experience</h2>
+    <div class="cv-rail">
+      {{ range $i, $item := $timeline }}
+      <div class="cv-item" data-reveal style="--reveal-delay: {{ mul $i 0.08 }}s">
+        <span class="cv-index" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+        <span class="cv-rail-line" aria-hidden="true"></span>
+        <div class="cv-item-body">
+          <div class="cv-item-head">
+            <div>
+              <h3>{{ .role }}{{ if in .dates "Present" }}<span class="cv-live" aria-hidden="true"></span>{{ end }}</h3>
+              <p class="cv-company">{{ .company }}</p>
+            </div>
+            <p class="cv-dates">{{ .dates }}</p>
+          </div>
+          <p>{{ .description }}</p>
         </div>
-        <p class="cv-dates">{{ .dates }}</p>
-      </div>
-      <p>{{ .description }}</p>
-    </div>
-    {{ end }}
-  </section>
-
-  {{ with hugo.Data.education }}
-  {{ if gt (len .) 0 }}
-  <section class="cv-block">
-    <h2>Education</h2>
-    {{ range . }}
-    <div class="cv-item">
-      <div class="cv-item-head">
-        <div>
-          <h3>{{ .degree }}</h3>
-          <p class="cv-company">{{ .school }}</p>
-        </div>
-        <p class="cv-dates">{{ .dates }}</p>
-      </div>
-      {{ with .description }}<p>{{ . }}</p>{{ end }}
-    </div>
-    {{ end }}
-  </section>
-  {{ end }}
-  {{ end }}
-
-  <section class="cv-block">
-    <h2>Skills</h2>
-    <div class="cv-skills">
-      {{ range first 6 hugo.Data.stack }}
-      <div>
-        <h3>{{ .name }}</h3>
-        <p>{{ delimit .items " · " }}</p>
       </div>
       {{ end }}
     </div>
   </section>
 
+  {{ with hugo.Data.education }}
+  {{ if gt (len .) 0 }}
+  {{ $n = add $n 1 }}
   <section class="cv-block">
-    <h2>Certifications</h2>
-    <div class="cv-item">
-      <div class="cv-item-head">
-        <h3>Cisco Networking Essentials</h3>
-        <p class="cv-dates">Cisco</p>
+    <h2 class="cv-section-head"><span class="cv-numeral">{{ index $romans (sub $n 1) }}</span>Education</h2>
+    <div class="cv-rail">
+      {{ range $i, $item := . }}
+      <div class="cv-item" data-reveal style="--reveal-delay: {{ mul $i 0.08 }}s">
+        <span class="cv-index" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+        <span class="cv-rail-line" aria-hidden="true"></span>
+        <div class="cv-item-body">
+          <div class="cv-item-head">
+            <div>
+              <h3>{{ .degree }}</h3>
+              <p class="cv-company">{{ .school }}</p>
+            </div>
+            <p class="cv-dates">{{ .dates }}</p>
+          </div>
+          {{ with .description }}<p>{{ . }}</p>{{ end }}
+        </div>
       </div>
+      {{ end }}
     </div>
-    <div class="cv-item">
-      <div class="cv-item-head">
-        <h3>Europejski Certyfikat Umiejętności Komputerowych (ECDL)</h3>
-        <p class="cv-dates">PTI · 2016</p>
+  </section>
+  {{ end }}
+  {{ end }}
+
+  {{ $n = add $n 1 }}
+  <section class="cv-block">
+    <h2 class="cv-section-head"><span class="cv-numeral">{{ index $romans (sub $n 1) }}</span>Skills</h2>
+    <div class="cv-skills">
+      {{ range $i, $group := (first 6 hugo.Data.stack) }}
+      <div class="stack-block" data-reveal style="--reveal-delay: {{ mul $i 0.06 }}s">
+        <h3>{{ $group.name }}</h3>
+        <p>{{ delimit $group.items " · " }}</p>
       </div>
+      {{ end }}
     </div>
   </section>
 
+  {{ $n = add $n 1 }}
   <section class="cv-block">
-    <h2>Languages</h2>
-    <ul class="chip-row">
-      <li>Polish — native</li>
-      <li>English — professional</li>
-      <li>Spanish — working</li>
+    <h2 class="cv-section-head"><span class="cv-numeral">{{ index $romans (sub $n 1) }}</span>Certifications</h2>
+    <div class="cert-row">
+      {{ range $i, $cert := hugo.Data.certifications }}
+      <div class="cert-seal" data-reveal style="--reveal-delay: {{ mul $i 0.08 }}s">
+        <span class="cert-ring"><span class="cert-year">{{ if .date }}{{ .date }}{{ else }}✓{{ end }}</span></span>
+        <p class="cert-name">{{ .name }}</p>
+        <p class="cert-issuer">{{ .issuer }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ $n = add $n 1 }}
+  <section class="cv-block">
+    <h2 class="cv-section-head"><span class="cv-numeral">{{ index $romans (sub $n 1) }}</span>Languages</h2>
+    <ul class="lang-list">
+      {{ range $languages }}
+      {{ $lang := . }}
+      <li>
+        <span class="lang-name">{{ $lang.name }}</span>
+        <span class="lang-dots" aria-hidden="true">
+          {{ range seq 4 }}<i class="{{ if le . $lang.rating }}is-filled{{ end }}"></i>{{ end }}
+        </span>
+        <span class="lang-level">{{ $lang.level }}</span>
+      </li>
+      {{ end }}
     </ul>
   </section>
+
+  <p class="cv-colophon">Compiled in {{ .Site.Params.location }} · updated {{ now.Format "January 2006" }}</p>
 </article>
 {{ end }}
