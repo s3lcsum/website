@@ -66,6 +66,10 @@
       "label": "Secondary",
       "value": "Dell PowerEdge R610 — the experiment box, mostly powered down"
     },
+    {
+      "label": "Repurposed",
+      "value": "Second MacBook Pro (Intel) — retired from daily duty, now extra compute"
+    },
     { "label": "Storage", "value": "Synology DS220+, 2 × 4TB — primary storage and backups" },
     { "label": "Router", "value": "MikroTik hAP ac3 on RouterOS, handling DHCP and NTP" },
     { "label": "Wireless", "value": "TP-Link Deco M4R ×3 mesh" },
