@@ -1,18 +1,20 @@
 {{ define "main" }}
-<article class="sheet">
+<article class="sheet file-sheet">
+  <span class="file-margin" aria-hidden="true">{{ .Site.Params.location }} — {{ .Site.Params.handle }}</span>
   <header class="sheet-head">
-    <p class="kicker">About</p>
+    <p class="kicker">File · {{ .Site.Params.handle }}</p>
     <h1>{{ .Title }}</h1>
+    <span class="file-stamp" aria-hidden="true">Verified</span>
   </header>
 
   <div class="sheet-grid">
-    <div class="prose" data-reveal>
+    <div class="prose file-prose" data-reveal>
       {{ .Content }}
     </div>
 
-    <aside class="facts" data-reveal style="--reveal-delay: 0.12s">
+    <aside class="facts file-facts" data-reveal style="--reveal-delay: 0.12s">
       <section>
-        <h2>Quick facts</h2>
+        <h2 class="file-tab"><span>01</span>Identity</h2>
         <dl>
           <div><dt>Location</dt><dd>{{ .Site.Params.location }}</dd></div>
           <div><dt>Role</dt><dd>{{ .Site.Params.role }} · {{ .Site.Params.company }}</dd></div>
@@ -22,7 +24,7 @@
       </section>
 
       <section>
-        <h2>Also</h2>
+        <h2 class="file-tab"><span>02</span>Also</h2>
         <ul class="chip-row">
           <li>Surfing</li>
           <li>Longboarding</li>
@@ -35,7 +37,7 @@
       </section>
 
       <section>
-        <h2>Find me</h2>
+        <h2 class="file-tab"><span>03</span>Find me</h2>
         <ul class="link-stack">
           {{ range .Site.Params.social }}
           <li>

@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $lab := hugo.Data.homelab }}
+{{ $romans := slice "I" "II" "III" "IV" "V" }}
 <article class="sheet">
   <div class="cv-progress" data-cv-progress aria-hidden="true"></div>
   <header class="sheet-head">
@@ -8,38 +9,44 @@
     <p class="lede">Home infrastructure as code — the same rigour I'd expect in production, on hardware that lives in my flat.</p>
   </header>
 
-  <ul class="stat-strip">
-    {{ range $lab.stats }}
-    <li>
-      <span class="stat-value" data-count-to="{{ .value }}">{{ .value }}</span>
-      <span class="stat-label">{{ .label }}</span>
+  <ul class="stat-strip cv-stat-strip">
+    {{ range $i, $stat := $lab.stats }}
+    <li data-reveal style="--reveal-delay: {{ mul $i 0.06 }}s">
+      <span class="stat-value" data-count-to="{{ $stat.value }}">{{ $stat.value }}</span>
+      <span class="stat-label">{{ $stat.label }}</span>
     </li>
     {{ end }}
   </ul>
 
-  <div class="prose lab-intro">
+  <div class="prose lab-intro" data-reveal>
     {{ .Content }}
   </div>
 
   <section class="lab-section">
-    <h2 class="section-head">How it's put together</h2>
-    <div class="layer-grid">
+    <h2 class="section-head"><span class="cv-numeral">{{ index $romans 0 }}</span>How it's put together</h2>
+    <div class="cv-rail lab-stack">
       {{ range $i, $layer := $lab.layers }}
-      <article class="layer-card" data-reveal style="--reveal-delay: {{ mul $i 0.06 }}s">
-        <p class="kicker">{{ .name }}</p>
-        <p>{{ .what }}</p>
-        <ul class="chip-row">
-          {{ range .tools }}
-          <li>{{ . }}</li>
-          {{ end }}
-        </ul>
-      </article>
+      <div class="cv-item" data-reveal style="--reveal-delay: {{ mul $i 0.06 }}s">
+        <span class="cv-index" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+        <span class="cv-rail-line" aria-hidden="true"></span>
+        <div class="cv-item-body">
+          <article class="layer-card">
+            <p class="kicker">{{ $layer.name }}</p>
+            <p>{{ $layer.what }}</p>
+            <ul class="chip-row">
+              {{ range $layer.tools }}
+              <li>{{ . }}</li>
+              {{ end }}
+            </ul>
+          </article>
+        </div>
+      </div>
       {{ end }}
     </div>
   </section>
 
-  <section class="lab-section">
-    <h2 class="section-head">The metal</h2>
+  <section class="lab-section" data-reveal>
+    <h2 class="section-head"><span class="cv-numeral">{{ index $romans 1 }}</span>The metal</h2>
     <dl class="spec-list">
       {{ range $lab.metal }}
       <div>
@@ -50,20 +57,20 @@
     </dl>
   </section>
 
-  <section class="lab-section">
-    <h2 class="section-head">How it's run</h2>
+  <section class="lab-section" data-reveal>
+    <h2 class="section-head"><span class="cv-numeral">{{ index $romans 2 }}</span>How it's run</h2>
     <div class="ops-grid">
-      {{ range $i, $op := $lab.operations }}
-      <article class="ops-item" data-reveal style="--reveal-delay: {{ mul $i 0.06 }}s">
-        <h3>{{ .name }}</h3>
-        <p>{{ .what }}</p>
+      {{ range $op := $lab.operations }}
+      <article class="ops-item">
+        <h3>{{ $op.name }}</h3>
+        <p>{{ $op.what }}</p>
       </article>
       {{ end }}
     </div>
   </section>
 
-  <section class="lab-section">
-    <h2 class="section-head">Next on the list</h2>
+  <section class="lab-section" data-reveal>
+    <h2 class="section-head"><span class="cv-numeral">{{ index $romans 3 }}</span>Next on the list</h2>
     <ul class="roadmap">
       {{ range $lab.roadmap }}
       <li>{{ . }}</li>
@@ -71,7 +78,7 @@
     </ul>
   </section>
 
-  <div class="card-actions lab-cta">
+  <div class="card-actions lab-cta" data-reveal>
     <a class="btn btn-solid" href="https://github.com/s3lcsum/gitops" target="_blank" rel="noopener noreferrer">Read the repo</a>
     <a class="btn btn-ghost" href="{{ "/stack/" | relURL }}">See the toolkit</a>
   </div>
