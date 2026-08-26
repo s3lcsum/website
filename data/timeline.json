@@ -3,30 +3,30 @@
     "role": "Senior SysDevOps Engineer",
     "company": "InPost",
     "dates": "Nov 2025 — Present",
-    "description": "Full-time, remote. Focused on automating the company's manual processes end to end — built a Claude Code automation that cut JSM ticket turnaround from two weeks to eight hours and lifted a significant load off the team. Currently migrating workloads from on-premises datacenters to GCP."
+    "description": "Full-time, remote. Most of what I do is automate work the company still handles manually. A Claude Code automation I built cut JSM ticket turnaround from two weeks to eight hours, which took real pressure off the team. Alongside that I'm moving services out of our own datacenters into GCP."
   },
   {
     "role": "Senior SysDevOps Engineer",
     "company": "UserTesting (formerly UserZoom)",
     "dates": "Mar 2022 — Nov 2025",
-    "description": "Joined while the platform was building brand-new AWS infrastructure after the acquisition. Worked across its full lifecycle — from designing IP subnets for every environment class to operating it against production-grade standards."
+    "description": "Joined right after the acquisition, when the whole AWS platform was still being built from scratch. Started with IP subnet design for every environment type and ended up operating it day to day against standards we wrote ourselves."
   },
   {
     "role": "DevOps Engineer",
     "company": "MoreFrom IT",
     "dates": "2020 — Feb 2022",
-    "description": "Migrated the platform from hand-managed VM servers with git-pull deployments to a properly engineered GKE infrastructure."
+    "description": "Moved the platform off VMs, where apps were deployed by running git pull, onto a properly set up GKE cluster."
   },
   {
     "role": "PHP Developer",
     "company": "MoreFrom IT",
     "dates": "2018 — 2020",
-    "description": "First two years at the company — then operating under its previous name — building PHP applications, mostly in Laravel."
+    "description": "Same company, different name back then. Spent two years building PHP apps, mostly Laravel."
   },
   {
     "role": "Freelance Developer",
     "company": "Self-employed",
     "dates": "2015 — 2018",
-    "description": "First commercial contracts before graduating school: simple websites, a Unity game, a Xamarin mobile app, an Electron desktop app, and several larger Laravel CMS projects."
+    "description": "A handful of contracts before I even finished school: simple websites, a Unity game, a Xamarin mobile app, an Electron desktop app, and a few bigger Laravel CMS projects."
   }
 ]
