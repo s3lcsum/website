@@ -18,11 +18,6 @@ I'm a big sci-fi fan. Frank Herbert is my guy. I'm also into self-development bo
 
 Recently started renovating an old flat. It's a new kind of project — one where the problems don't have Stack Overflow answers.
 
-## Languages
-
-- **Polish** — native
-- **English** — B2
-- **Spanish** — B1
 - **Italian, French, Japanese** — on the roadmap
 
 ## The Dream

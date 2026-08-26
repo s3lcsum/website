@@ -1078,27 +1078,10 @@ button {
   }
 }
 
-// About — personnel file: stamped header tab, index tabs in the sidebar,
-// drop cap and a rotated margin note, echoing the CV's document conceit.
+// About — personnel file: index tabs in the sidebar, drop cap and a
+// rotated margin note, echoing the CV's document conceit.
 .file-sheet {
   position: relative;
-}
-
-.file-stamp {
-  position: absolute;
-  top: 1.4rem;
-  right: 0;
-  transform: rotate(8deg);
-  padding: 0.3rem 0.75rem;
-  border: 2px solid var(--copper);
-  border-radius: 4px;
-  box-shadow: inset 0 0 0 1px var(--paper), inset 0 0 0 2px var(--copper);
-  font-family: var(--mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--copper-deep);
-  opacity: 0.75;
 }
 
 .file-margin {
@@ -1164,74 +1147,36 @@ button {
   color: rgba(28, 23, 18, 0.45);
 }
 
-// Uses — inventory manifest: full-width numbered rows with right-aligned values.
-.manifest-group {
-  margin-top: 2.4rem;
+// "Find me" rows become tappable buttons with icon + label.
+.find-stack {
+  gap: 0.5rem;
 }
 
-.manifest-group h2 {
+.find-stack a {
   display: flex;
-  align-items: baseline;
-  gap: 0.4rem;
-  margin: 0 0 0.4rem;
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  font-variation-settings: "SOFT" 40, "WONK" 0.8;
-}
-
-.manifest-group h2 span {
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--paper-lift);
   font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
 }
 
-.manifest-list {
-  margin: 0;
-  border-top: 1px solid var(--rule);
+.find-stack .contact-icon {
+  flex: 0 0 auto;
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
-.manifest-row {
-  display: grid;
-  grid-template-columns: 2.2rem minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: 1rem;
-  padding: 0.85rem 0;
-  border-bottom: 1px solid var(--rule-soft);
-}
-
-.manifest-num {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  color: rgba(28, 23, 18, 0.25);
-  transition: color 0.35s ease;
-}
-
-.manifest-row:hover .manifest-num {
+.find-stack a:hover {
+  border-color: var(--copper);
   color: var(--copper-deep);
-}
-
-.manifest-row dt {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.manifest-row dd {
-  margin: 0;
-  text-align: right;
-}
-
-.manifest-notes {
-  margin-top: 2.4rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--rule);
+  transform: translateY(-2px);
 }
 
 // Homelab — schematic: layers hang off the same rail as the CV timeline,
@@ -1240,6 +1185,14 @@ button {
   display: flex;
   align-items: center;
   gap: 0.7rem;
+}
+
+.lab-stack .cv-item {
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+}
+
+.lab-stack .cv-item-body {
+  grid-column: 2;
 }
 
 .lab-stack {

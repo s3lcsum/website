@@ -27,7 +27,6 @@
     <div class="cv-rail lab-stack">
       {{ range $i, $layer := $lab.layers }}
       <div class="cv-item" data-reveal style="--reveal-delay: {{ mul $i 0.06 }}s">
-        <span class="cv-index" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
         <span class="cv-rail-line" aria-hidden="true"></span>
         <div class="cv-item-body">
           <article class="layer-card">

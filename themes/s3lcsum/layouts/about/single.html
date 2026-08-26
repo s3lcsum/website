@@ -4,7 +4,6 @@
   <header class="sheet-head">
     <p class="kicker">File · {{ .Site.Params.handle }}</p>
     <h1>{{ .Title }}</h1>
-    <span class="file-stamp" aria-hidden="true">Verified</span>
   </header>
 
   <div class="sheet-grid">
@@ -38,10 +37,13 @@
 
       <section>
         <h2 class="file-tab"><span>03</span>Find me</h2>
-        <ul class="link-stack">
+        <ul class="link-stack find-stack">
           {{ range .Site.Params.social }}
           <li>
-            <a href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} target="_blank" rel="me noopener noreferrer"{{ else }} rel="me"{{ end }}>{{ .name }}</a>
+            <a href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} target="_blank" rel="me noopener noreferrer"{{ else }} rel="me"{{ end }}>
+              <span class="contact-icon" aria-hidden="true">{{ partial "icon.html" .icon }}</span>
+              <span>{{ .name }}</span>
+            </a>
           </li>
           {{ end }}
         </ul>
