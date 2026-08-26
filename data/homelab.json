@@ -72,8 +72,8 @@
     },
     { "label": "Storage", "value": "Synology DS220+, 2 × 4TB — primary storage and backups" },
     { "label": "Router", "value": "MikroTik hAP ac3 on RouterOS, handling DHCP and NTP" },
-    { "label": "Wireless", "value": "TP-Link Deco M4R ×3 mesh" },
-    { "label": "Uplink", "value": "300 Mb/s symmetric fibre" }
+    { "label": "Wireless", "value": "Ubiquiti U7 Lite + TP-Link Deco M4R ×3 mesh" },
+    { "label": "Uplink", "value": "1 Gb/s symmetric fibre, public IP" }
   ],
   "operations": [
     {
