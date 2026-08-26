@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ $lab := hugo.Data.homelab }}
 <article class="sheet">
+  <div class="cv-progress" data-cv-progress aria-hidden="true"></div>
   <header class="sheet-head">
     <p class="kicker">The one project</p>
     <h1>{{ .Title }}</h1>
@@ -10,7 +11,7 @@
   <ul class="stat-strip">
     {{ range $lab.stats }}
     <li>
-      <span class="stat-value">{{ .value }}</span>
+      <span class="stat-value" data-count-to="{{ .value }}">{{ .value }}</span>
       <span class="stat-label">{{ .label }}</span>
     </li>
     {{ end }}
@@ -23,8 +24,8 @@
   <section class="lab-section">
     <h2 class="section-head">How it's put together</h2>
     <div class="layer-grid">
-      {{ range $lab.layers }}
-      <article class="layer-card">
+      {{ range $i, $layer := $lab.layers }}
+      <article class="layer-card" data-reveal style="--reveal-delay: {{ mul $i 0.06 }}s">
         <p class="kicker">{{ .name }}</p>
         <p>{{ .what }}</p>
         <ul class="chip-row">
@@ -52,8 +53,8 @@
   <section class="lab-section">
     <h2 class="section-head">How it's run</h2>
     <div class="ops-grid">
-      {{ range $lab.operations }}
-      <article class="ops-item">
+      {{ range $i, $op := $lab.operations }}
+      <article class="ops-item" data-reveal style="--reveal-delay: {{ mul $i 0.06 }}s">
         <h3>{{ .name }}</h3>
         <p>{{ .what }}</p>
       </article>

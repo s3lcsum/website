@@ -7,11 +7,11 @@
   </header>
 
   <div class="stack-list">
-    {{ range hugo.Data.stack }}
-    <section class="stack-block">
-      <h2>{{ .name }}</h2>
+    {{ range $i, $group := hugo.Data.stack }}
+    <section class="stack-block" data-reveal style="--reveal-delay: {{ mul $i 0.06 }}s">
+      <h2>{{ $group.name }}</h2>
       <ul class="chip-row">
-        {{ range .items }}
+        {{ range $group.items }}
         <li>{{ . }}</li>
         {{ end }}
       </ul>
