@@ -22,11 +22,6 @@
       "tools": ["Proxmox VE", "LXC", "OpenTofu"]
     },
     {
-      "name": "Kubernetes",
-      "what": "A Talos cluster provisioned from the Proxmox module, holding the platform workloads that outgrew Compose.",
-      "tools": ["Talos", "ArgoCD", "Calico"]
-    },
-    {
       "name": "Network",
       "what": "RouterOS is code as well — firewall rules and the WireGuard peers I use to get back in from outside.",
       "tools": ["MikroTik", "RouterOS", "WireGuard"]
@@ -91,12 +86,16 @@
     {
       "name": "Restore from the repo",
       "what": "Stacks ship env templates and seed config, so a service comes back from git rather than from memory."
+    },
+    {
+      "name": "Hermes does the chores",
+      "what": "OpenCode and Hermes handle the day-to-day. Hermes watches for new versions across the lab, and when an upgrade has no breaking changes it commits and applies it to the repo itself — monitoring keeps an eye on the rollout, and a failed check triggers an automatic rollback."
     }
   ],
   "roadmap": [
     "Move backups off Proxmox and onto the NAS",
     "NUT/UPS integration so the lab survives a power cut",
     "Isolate IoT devices onto their own subnet",
-    "Self-hosted LLM running on the cluster"
+    "Self-hosted LLM on one of the Proxmox boxes"
   ]
 }
