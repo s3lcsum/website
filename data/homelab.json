@@ -8,8 +8,8 @@
   "layers": [
     {
       "name": "Edge",
-      "what": "Traefik terminates TLS for every hostname on the domain, CrowdSec sits in front of it, and port 80 is a permanent redirect to HTTPS.",
-      "tools": ["Traefik", "CrowdSec", "Cloudflare Tunnel"]
+      "what": "Traefik is the single entry point for all public and internal traffic, reachable directly and from behind WireGuard. The firewall drops unsolicited traffic to the public IP, a few hosts are published through Cloudflare so floods never reach the router, and Tailscale runs on every instance as a failover VPN in case WireGuard goes down.",
+      "tools": ["Traefik", "CrowdSec", "Cloudflare", "WireGuard", "Tailscale"]
     },
     {
       "name": "Identity",
