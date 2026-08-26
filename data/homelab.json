@@ -90,10 +90,19 @@
     {
       "name": "Hermes does the chores",
       "what": "OpenCode and Hermes handle the day-to-day. Hermes watches for new versions across the lab, and when an upgrade has no breaking changes it commits and applies it to the repo itself — monitoring keeps an eye on the rollout, and a failed check triggers an automatic rollback."
+    },
+    {
+      "name": "Secrets stay out of git",
+      "what": "Stacks commit only .env.example skeletons; the real values are injected at runtime by Vault — including the OAuth client secrets Authentik depends on, so there is nothing sensitive sitting in state either."
+    },
+    {
+      "name": "The house answers messages",
+      "what": "Family can message the Facebook page and get Home Assistant to act: n8n verifies Meta's webhook, maps the sender to a person with their own conversation thread, and calls the HA conversation API. A Cloudflare rule exception lets Meta's servers through the geo-block so it works at all."
     }
   ],
   "roadmap": [
     "Move backups off Proxmox and onto the NAS",
+    "Migrate cloud drives onto the NAS",
     "NUT/UPS integration so the lab survives a power cut",
     "Isolate IoT devices onto their own subnet",
     "Self-hosted LLM on one of the Proxmox boxes"
