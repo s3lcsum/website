@@ -10,15 +10,7 @@
 
     mm.add("(prefers-reduced-motion: reduce)", function () {
       gsap.set(
-        [
-          ".hero__media",
-          ".hero__name .word",
-          ".hero__tag",
-          ".hero .socials a",
-          ".timeline__item",
-          ".work-item",
-          ".stack-cluster",
-        ],
+        [".avatar", ".hero__name", ".hero__tag", ".hero__lede", ".hero .socials", ".hero__ctas", ".timeline__item", ".work-card", ".stack-cluster"],
         { clearProps: "all" }
       );
       return function () {};
@@ -27,79 +19,64 @@
     mm.add("(prefers-reduced-motion: no-preference)", function () {
       var ctx = gsap.context(function () {
         gsap.set(
-          [".hero__media", ".hero__name .word", ".hero__tag", ".hero .socials a"],
-          {
-            autoAlpha: 0,
-            y: 16,
-          }
+          [".avatar", ".hero__name", ".hero__tag", ".hero__lede", ".hero .socials", ".hero__ctas"],
+          { autoAlpha: 0, y: 10 }
         );
 
-        var hero = gsap.timeline({ defaults: { ease: "power2.out" } });
+        var hero = gsap.timeline({ defaults: { ease: "power1.out", duration: 0.45 } });
         hero
-          .to(".hero__media", { autoAlpha: 1, y: 0, duration: 0.55 })
-          .to(
-            ".hero__name .word",
-            {
-              autoAlpha: 1,
-              y: 0,
-              duration: 0.65,
-              stagger: 0.08,
-              ease: "power3.out",
-            },
-            "-=0.25"
-          )
-          .to(".hero__tag", { autoAlpha: 1, y: 0, duration: 0.45 }, "-=0.3")
-          .to(
-            ".hero .socials a",
-            { autoAlpha: 1, y: 0, duration: 0.35, stagger: 0.04 },
-            "-=0.2"
-          );
+          .to(".avatar", { autoAlpha: 1, y: 0 })
+          .to(".hero__name", { autoAlpha: 1, y: 0 }, "-=0.25")
+          .to(".hero__tag", { autoAlpha: 1, y: 0 }, "-=0.28")
+          .to(".hero__lede", { autoAlpha: 1, y: 0 }, "-=0.28")
+          .to(".hero .socials", { autoAlpha: 1, y: 0 }, "-=0.25")
+          .to(".hero__ctas", { autoAlpha: 1, y: 0 }, "-=0.25");
 
-        gsap.set([".timeline__item", ".work-item", ".stack-cluster"], {
+        gsap.set([".timeline__item", ".work-card", ".stack-cluster"], {
           autoAlpha: 0,
-          y: 18,
+          y: 12,
         });
 
         ScrollTrigger.batch(".timeline__item", {
-          start: "top 85%",
+          start: "top 88%",
           once: true,
           onEnter: function (batch) {
             gsap.to(batch, {
               autoAlpha: 1,
               y: 0,
-              duration: 0.5,
-              stagger: 0.08,
-              ease: "power2.out",
+              duration: 0.4,
+              stagger: 0.06,
+              ease: "power1.out",
               overwrite: true,
             });
           },
         });
 
-        ScrollTrigger.batch(".work-item", {
-          start: "top 85%",
+        ScrollTrigger.batch(".work-card", {
+          start: "top 88%",
           once: true,
           onEnter: function (batch) {
             gsap.to(batch, {
               autoAlpha: 1,
               y: 0,
-              duration: 0.5,
-              stagger: 0.06,
-              ease: "power2.out",
+              duration: 0.4,
+              stagger: 0.05,
+              ease: "power1.out",
               overwrite: true,
             });
           },
         });
 
         ScrollTrigger.batch(".stack-cluster", {
-          start: "top 85%",
+          start: "top 88%",
           once: true,
           onEnter: function (batch) {
             gsap.to(batch, {
               autoAlpha: 1,
               y: 0,
-              duration: 0.45,
-              stagger: 0.05,
-              ease: "power2.out",
+              duration: 0.35,
+              stagger: 0.04,
+              ease: "power1.out",
               overwrite: true,
             });
           },
@@ -110,12 +87,6 @@
         ctx.revert();
       };
     });
-
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(function () {
-        ScrollTrigger.refresh();
-      });
-    }
   }
 
   if (document.readyState === "loading") {

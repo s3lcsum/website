@@ -12,13 +12,6 @@
     <link rel="icon" href="/assets/images/avatar.jpg" type="image/jpeg" />
     <link
       rel="preload"
-      href="/assets/fonts/space-grotesk-latin.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
       href="/assets/fonts/ibm-plex-mono-latin.woff2"
       as="font"
       type="font/woff2"
@@ -44,58 +37,61 @@
     <link rel="stylesheet" href="/styles/main.css" />
   </head>
   <body>
-    <header class="site-header wrap">
-      <a class="brand-mark" href="#top">Dominik Siejak</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#about">about</a>
-        <a href="#work">work</a>
-        <a href="#stack">stack</a>
-        <a href="#contact">contact</a>
-        <button
-          type="button"
-          class="theme-toggle"
-          id="theme-toggle"
-          aria-label="Toggle color theme"
-        >
-          theme
-        </button>
-      </nav>
+    <header class="site-header">
+      <div class="site-header__inner wrap">
+        <a class="brand-mark" href="#top">Dominik Siejak</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#stack">Stack</a>
+          <a href="#contact">Contact</a>
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Toggle color theme"
+          >
+            ◐
+          </button>
+        </nav>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero wrap" aria-label="Intro">
-        <div class="hero__copy">
-          <h1 class="hero__name">
-            <span class="word">Dominik</span>
-            <span class="word">Siejak</span>
-          </h1>
+        <div class="hero__inner">
+          <figure class="avatar">
+            <picture>
+              <source srcset="/assets/images/avatar.webp" type="image/webp" />
+              <img
+                src="/assets/images/avatar.jpg"
+                width="128"
+                height="128"
+                alt="Dominik Siejak"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
+          </figure>
+          <h1 class="hero__name">Dominik Siejak</h1>
           <p class="hero__tag">DevOps • Cloud • Automation</p>
-          <div class="hero__ctas">
-            <a href="#about">About</a>
-            <a href="#work">Selected work</a>
-          </div>
+          <p class="hero__lede">
+            Cloud infrastructure, container orchestration, and automation.
+            Based in Spain, originally from Poland.
+          </p>
           <div class="socials" aria-label="Profiles">
-            <a href="https://url.dominiksiejak.pl/github" rel="me">github</a>
-            <a href="https://url.dominiksiejak.pl/gitlab" rel="me">gitlab</a>
-            <a href="https://url.dominiksiejak.pl/linkedin" rel="me">linkedin</a>
-            <a href="https://url.dominiksiejak.pl/telegram" rel="me">telegram</a>
-            <a href="https://url.dominiksiejak.pl/whatsapp" rel="me">whatsapp</a>
-            <a href="https://url.dominiksiejak.pl/email" rel="me">email</a>
-            <a href="https://url.dominiksiejak.pl/chess" rel="me">chess</a>
+            <a href="https://url.dominiksiejak.pl/github" rel="me">GitHub</a>
+            <a href="https://url.dominiksiejak.pl/gitlab" rel="me">GitLab</a>
+            <a href="https://url.dominiksiejak.pl/linkedin" rel="me">LinkedIn</a>
+            <a href="https://url.dominiksiejak.pl/telegram" rel="me">Telegram</a>
+            <a href="https://url.dominiksiejak.pl/whatsapp" rel="me">WhatsApp</a>
+            <a href="https://url.dominiksiejak.pl/email" rel="me">Email</a>
+            <a href="https://url.dominiksiejak.pl/chess" rel="me">Chess</a>
           </div>
-        </div>
-        <div class="hero__media">
-          <picture>
-            <source srcset="/assets/images/avatar.webp" type="image/webp" />
-            <img
-              src="/assets/images/avatar.jpg"
-              width="266"
-              height="266"
-              alt="Portrait of Dominik Siejak"
-              fetchpriority="high"
-              decoding="async"
-            />
-          </picture>
+          <div class="hero__ctas">
+            <a class="btn btn-outline" href="#about">About</a>
+            <a class="btn btn-outline" href="#work">Selected work</a>
+          </div>
         </div>
       </section>
 
@@ -169,92 +165,92 @@
           Selected infrastructure and automation work. Links appear when a
           shortcurl exists — none of these have public URLs yet.
         </p>
-        <ul class="work-list">
-          <li class="work-item">
-            <div class="work-item__cat">Infrastructure</div>
-            <h3 class="work-item__name">Homelab Infrastructure</h3>
-            <p class="work-item__desc">
+        <div class="work-grid">
+          <article class="work-card">
+            <p class="work-card__cat">Infrastructure</p>
+            <h3 class="work-card__name">Homelab Infrastructure</h3>
+            <p class="work-card__desc">
               Proxmox-based homelab running Kubernetes, Docker, and a full stack
               of self-hosted services. Automated with Terraform and Ansible.
             </p>
-            <ul class="work-item__tags">
+            <ul class="work-card__tags">
               <li>Proxmox</li>
               <li>Kubernetes</li>
               <li>Terraform</li>
               <li>Ansible</li>
             </ul>
-          </li>
-          <li class="work-item">
-            <div class="work-item__cat">CI/CD</div>
-            <h3 class="work-item__name">GitOps Pipeline</h3>
-            <p class="work-item__desc">
+          </article>
+          <article class="work-card">
+            <p class="work-card__cat">CI/CD</p>
+            <h3 class="work-card__name">GitOps Pipeline</h3>
+            <p class="work-card__desc">
               ArgoCD-based GitOps workflow for deploying applications to
               Kubernetes. Helm charts, Kyverno policies, automated rollouts.
             </p>
-            <ul class="work-item__tags">
+            <ul class="work-card__tags">
               <li>ArgoCD</li>
               <li>Helm</li>
               <li>Kyverno</li>
               <li>GitLab CI</li>
             </ul>
-          </li>
-          <li class="work-item">
-            <div class="work-item__cat">IoT</div>
-            <h3 class="work-item__name">Home Automation</h3>
-            <p class="work-item__desc">
+          </article>
+          <article class="work-card">
+            <p class="work-card__cat">IoT</p>
+            <h3 class="work-card__name">Home Automation</h3>
+            <p class="work-card__desc">
               Home Assistant with Zigbee2MQTT, MQTT, and Tasmota. Lighting,
               climate, and security automation.
             </p>
-            <ul class="work-item__tags">
+            <ul class="work-card__tags">
               <li>Home Assistant</li>
               <li>Zigbee2MQTT</li>
               <li>MQTT</li>
               <li>Tasmota</li>
             </ul>
-          </li>
-          <li class="work-item">
-            <div class="work-item__cat">Security</div>
-            <h3 class="work-item__name">Identity &amp; Access Management</h3>
-            <p class="work-item__desc">
+          </article>
+          <article class="work-card">
+            <p class="work-card__cat">Security</p>
+            <h3 class="work-card__name">Identity &amp; Access Management</h3>
+            <p class="work-card__desc">
               Authentik identity provider with OIDC and LDAP. Centralized auth
               for homelab services.
             </p>
-            <ul class="work-item__tags">
+            <ul class="work-card__tags">
               <li>Authentik</li>
               <li>OIDC</li>
               <li>LDAP</li>
               <li>Vault</li>
             </ul>
-          </li>
-          <li class="work-item">
-            <div class="work-item__cat">Monitoring</div>
-            <h3 class="work-item__name">Observability Stack</h3>
-            <p class="work-item__desc">
+          </article>
+          <article class="work-card">
+            <p class="work-card__cat">Monitoring</p>
+            <h3 class="work-card__name">Observability Stack</h3>
+            <p class="work-card__desc">
               Grafana, Prometheus, and VictoriaMetrics for metrics; ELK for log
               aggregation.
             </p>
-            <ul class="work-item__tags">
+            <ul class="work-card__tags">
               <li>Grafana</li>
               <li>Prometheus</li>
               <li>VictoriaMetrics</li>
               <li>ELK</li>
             </ul>
-          </li>
-          <li class="work-item">
-            <div class="work-item__cat">Networking</div>
-            <h3 class="work-item__name">Network Infrastructure</h3>
-            <p class="work-item__desc">
+          </article>
+          <article class="work-card">
+            <p class="work-card__cat">Networking</p>
+            <h3 class="work-card__name">Network Infrastructure</h3>
+            <p class="work-card__desc">
               MikroTik network with Tailscale and WireGuard tunnels. AdGuard for
               DNS filtering and split DNS.
             </p>
-            <ul class="work-item__tags">
+            <ul class="work-card__tags">
               <li>MikroTik</li>
               <li>Tailscale</li>
               <li>WireGuard</li>
               <li>AdGuard</li>
             </ul>
-          </li>
-        </ul>
+          </article>
+        </div>
       </section>
 
       <section class="section stack wrap" id="stack">
@@ -302,24 +298,36 @@
           </div>
         </div>
       </section>
+
+      <section class="contact-block wrap" id="contact">
+        <h2 class="section__title">Get in Touch</h2>
+        <div class="hero__ctas">
+          <a class="btn btn-outline" href="https://url.dominiksiejak.pl/email"
+            >Email</a
+          >
+          <a class="btn btn-outline" href="https://url.dominiksiejak.pl/telegram"
+            >Telegram</a
+          >
+          <a class="btn btn-outline" href="https://url.dominiksiejak.pl/linkedin"
+            >LinkedIn</a
+          >
+        </div>
+      </section>
     </main>
 
-    <footer class="site-footer wrap" id="contact">
-      <div>
+    <footer class="site-footer">
+      <div class="wrap">
         <p>© 2017–2026 Dominik Siejak · <code>s3lcsum</code></p>
-        <p>
-          <a href="https://url.dominiksiejak.pl/email">office via shortcurl</a>
-        </p>
-      </div>
-      <div class="socials" aria-label="Contact links">
-        <a href="https://url.dominiksiejak.pl/github">github</a>
-        <a href="https://url.dominiksiejak.pl/gitlab">gitlab</a>
-        <a href="https://url.dominiksiejak.pl/linkedin">linkedin</a>
-        <a href="https://url.dominiksiejak.pl/telegram">telegram</a>
-        <a href="https://url.dominiksiejak.pl/whatsapp">whatsapp</a>
-        <a href="https://url.dominiksiejak.pl/email">email</a>
-        <a href="https://url.dominiksiejak.pl/chess">chess</a>
-        <a href="https://url.dominiksiejak.pl/github/dotfiles">dotfiles</a>
+        <div class="socials" aria-label="Contact links">
+          <a href="https://url.dominiksiejak.pl/github">GitHub</a>
+          <a href="https://url.dominiksiejak.pl/gitlab">GitLab</a>
+          <a href="https://url.dominiksiejak.pl/linkedin">LinkedIn</a>
+          <a href="https://url.dominiksiejak.pl/telegram">Telegram</a>
+          <a href="https://url.dominiksiejak.pl/whatsapp">WhatsApp</a>
+          <a href="https://url.dominiksiejak.pl/email">Email</a>
+          <a href="https://url.dominiksiejak.pl/chess">Chess</a>
+          <a href="https://url.dominiksiejak.pl/github/dotfiles">Dotfiles</a>
+        </div>
       </div>
     </footer>
 
