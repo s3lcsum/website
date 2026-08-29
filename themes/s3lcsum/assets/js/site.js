@@ -356,20 +356,17 @@
     const max = 3.2;
     const xTo = gsap.quickTo(img, "x", { duration: 0.55, ease: "power3" });
     const yTo = gsap.quickTo(img, "y", { duration: 0.55, ease: "power3" });
-    const sTo = gsap.quickTo(img, "scale", { duration: 0.7, ease: "power2.out" });
 
     const onMove = (e) => {
       const nx = (e.clientX / window.innerWidth) * 2 - 1;
       const ny = (e.clientY / window.innerHeight) * 2 - 1;
       xTo(nx * max);
       yTo(ny * max);
-      sTo(1.012);
     };
 
     const onLeave = () => {
       xTo(0);
       yTo(0);
-      sTo(1);
     };
 
     window.addEventListener("pointermove", onMove, { passive: true });
@@ -378,7 +375,7 @@
     pageCleanups.push(() => {
       window.removeEventListener("pointermove", onMove);
       document.documentElement.removeEventListener("mouseleave", onLeave);
-      gsap.set(img, { clearProps: "transform" });
+      gsap.set(img, { clearProps: "x,y" });
     });
   };
 
@@ -414,7 +411,7 @@
       pageCleanups.push(() => {
         btn.removeEventListener("pointermove", onMove);
         btn.removeEventListener("pointerleave", onLeave);
-        gsap.set(btn, { clearProps: "transform" });
+        gsap.set(btn, { clearProps: "x,y" });
       });
     });
   };
