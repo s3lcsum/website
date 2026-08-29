@@ -1,3 +1,6 @@
 *.lock
 resources
 public
+node_modules/
+.wrangler/
+styles/main.css.map
