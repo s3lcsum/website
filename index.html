@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dominik Siejak</title>
+    <meta
+      name="description"
+      content="DevOpsSec engineer specializing in cloud infrastructure, container orchestration, and automation."
+    />
+    <meta name="theme-color" content="#560591" />
+    <link rel="icon" href="/assets/images/avatar.jpg" type="image/jpeg" />
+    <link
+      rel="preload"
+      href="/assets/fonts/space-grotesk-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/ibm-plex-mono-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <script>
+      (function () {
+        try {
+          var k = "theme";
+          var s = localStorage.getItem(k);
+          var t =
+            s === "light" || s === "dark"
+              ? s
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <header class="site-header wrap">
+      <a class="brand-mark" href="#top">Dominik Siejak</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">about</a>
+        <a href="#work">work</a>
+        <a href="#stack">stack</a>
+        <a href="#contact">contact</a>
+        <button
+          type="button"
+          class="theme-toggle"
+          id="theme-toggle"
+          aria-label="Toggle color theme"
+        >
+          theme
+        </button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero wrap" aria-label="Intro">
+        <div class="hero__copy">
+          <h1 class="hero__name">
+            <span class="word">Dominik</span>
+            <span class="word">Siejak</span>
+          </h1>
+          <p class="hero__tag">DevOps • Cloud • Automation</p>
+          <div class="hero__ctas">
+            <a href="#about">About</a>
+            <a href="#work">Selected work</a>
+          </div>
+          <div class="socials" aria-label="Profiles">
+            <a href="https://url.dominiksiejak.pl/github" rel="me">github</a>
+            <a href="https://url.dominiksiejak.pl/gitlab" rel="me">gitlab</a>
+            <a href="https://url.dominiksiejak.pl/linkedin" rel="me">linkedin</a>
+            <a href="https://url.dominiksiejak.pl/telegram" rel="me">telegram</a>
+            <a href="https://url.dominiksiejak.pl/whatsapp" rel="me">whatsapp</a>
+            <a href="https://url.dominiksiejak.pl/email" rel="me">email</a>
+            <a href="https://url.dominiksiejak.pl/chess" rel="me">chess</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <picture>
+            <source srcset="/assets/images/avatar.webp" type="image/webp" />
+            <img
+              src="/assets/images/avatar.jpg"
+              width="266"
+              height="266"
+              alt="Portrait of Dominik Siejak"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
+        </div>
+      </section>
+
+      <section class="section about wrap" id="about">
+        <h2 class="section__title">About</h2>
+        <div class="prose">
+          <p>
+            I'm Dominik — online handle <code>s3lcsum</code>. I do DevOps,
+            infrastructure, and anything that involves making machines talk to
+            each other.
+          </p>
+          <p>
+            Day to day, I build and operate infrastructure. Cloud platforms,
+            container orchestration, GitOps pipelines, networking, IoT. The kind
+            of work where if everything's running smoothly, nobody notices you
+            exist — and that's the point.
+          </p>
+          <p>
+            I started tinkering with computers young. One thing led to another —
+            self-hosting, home labs, automating everything that moves. I've been
+            running my own infrastructure for years: home automation,
+            self-hosted services, tunnels, DNS, the whole stack.
+          </p>
+          <p>
+            Based in Spain, originally from Poland. Polish, English, and
+            Spanish. Outside of terminals: chess on
+            <a href="https://url.dominiksiejak.pl/chess">Chess.com</a>, and a
+            fairly extensive home-automation setup.
+          </p>
+        </div>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <div class="timeline__meta">Nov 2025 — Present · InPost</div>
+            <h3 class="timeline__role">DevOps Engineer</h3>
+            <p class="timeline__desc">
+              Full-time, remote. DevOps engineering for one of Poland's largest
+              logistics and e-commerce platforms.
+            </p>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__meta">Mar 2022 — Nov 2025 · UserTesting</div>
+            <h3 class="timeline__role">Senior SysDevOps Engineer</h3>
+            <p class="timeline__desc">
+              Barcelona, Spain. Systems and DevOps for a user research platform.
+              AWS, ArgoCD, Kubernetes, and infrastructure automation.
+            </p>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__meta">Jul 2017 — Dec 2023 · Blockchain House</div>
+            <h3 class="timeline__role">DevOps Engineer</h3>
+            <p class="timeline__desc">
+              Contract. AWS, MySQL, and blockchain infrastructure. Smart
+              contract deployment and dApp infrastructure.
+            </p>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__meta">2015 — 2018 · Self-employed</div>
+            <h3 class="timeline__role">Freelance Web Developer</h3>
+            <p class="timeline__desc">
+              Custom plugins, application backends, smart home infrastructure
+              (Zigbee, Proxmox, Portainer, Authentik, Home Assistant). Home data
+              centers via VPN and MikroTik RouterOS.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section work wrap" id="work">
+        <h2 class="section__title">Work</h2>
+        <p class="section__lead">
+          Selected infrastructure and automation work. Links appear when a
+          shortcurl exists — none of these have public URLs yet.
+        </p>
+        <ul class="work-list">
+          <li class="work-item">
+            <div class="work-item__cat">Infrastructure</div>
+            <h3 class="work-item__name">Homelab Infrastructure</h3>
+            <p class="work-item__desc">
+              Proxmox-based homelab running Kubernetes, Docker, and a full stack
+              of self-hosted services. Automated with Terraform and Ansible.
+            </p>
+            <ul class="work-item__tags">
+              <li>Proxmox</li>
+              <li>Kubernetes</li>
+              <li>Terraform</li>
+              <li>Ansible</li>
+            </ul>
+          </li>
+          <li class="work-item">
+            <div class="work-item__cat">CI/CD</div>
+            <h3 class="work-item__name">GitOps Pipeline</h3>
+            <p class="work-item__desc">
+              ArgoCD-based GitOps workflow for deploying applications to
+              Kubernetes. Helm charts, Kyverno policies, automated rollouts.
+            </p>
+            <ul class="work-item__tags">
+              <li>ArgoCD</li>
+              <li>Helm</li>
+              <li>Kyverno</li>
+              <li>GitLab CI</li>
+            </ul>
+          </li>
+          <li class="work-item">
+            <div class="work-item__cat">IoT</div>
+            <h3 class="work-item__name">Home Automation</h3>
+            <p class="work-item__desc">
+              Home Assistant with Zigbee2MQTT, MQTT, and Tasmota. Lighting,
+              climate, and security automation.
+            </p>
+            <ul class="work-item__tags">
+              <li>Home Assistant</li>
+              <li>Zigbee2MQTT</li>
+              <li>MQTT</li>
+              <li>Tasmota</li>
+            </ul>
+          </li>
+          <li class="work-item">
+            <div class="work-item__cat">Security</div>
+            <h3 class="work-item__name">Identity &amp; Access Management</h3>
+            <p class="work-item__desc">
+              Authentik identity provider with OIDC and LDAP. Centralized auth
+              for homelab services.
+            </p>
+            <ul class="work-item__tags">
+              <li>Authentik</li>
+              <li>OIDC</li>
+              <li>LDAP</li>
+              <li>Vault</li>
+            </ul>
+          </li>
+          <li class="work-item">
+            <div class="work-item__cat">Monitoring</div>
+            <h3 class="work-item__name">Observability Stack</h3>
+            <p class="work-item__desc">
+              Grafana, Prometheus, and VictoriaMetrics for metrics; ELK for log
+              aggregation.
+            </p>
+            <ul class="work-item__tags">
+              <li>Grafana</li>
+              <li>Prometheus</li>
+              <li>VictoriaMetrics</li>
+              <li>ELK</li>
+            </ul>
+          </li>
+          <li class="work-item">
+            <div class="work-item__cat">Networking</div>
+            <h3 class="work-item__name">Network Infrastructure</h3>
+            <p class="work-item__desc">
+              MikroTik network with Tailscale and WireGuard tunnels. AdGuard for
+              DNS filtering and split DNS.
+            </p>
+            <ul class="work-item__tags">
+              <li>MikroTik</li>
+              <li>Tailscale</li>
+              <li>WireGuard</li>
+              <li>AdGuard</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section stack wrap" id="stack">
+        <h2 class="section__title">Stack</h2>
+        <div class="stack-grid">
+          <div class="stack-cluster">
+            <h3>Cloud</h3>
+            <ul>
+              <li>GCP</li>
+              <li>AWS</li>
+            </ul>
+          </div>
+          <div class="stack-cluster">
+            <h3>Orchestration</h3>
+            <ul>
+              <li>Kubernetes</li>
+              <li>ArgoCD</li>
+              <li>Helm</li>
+              <li>Terraform</li>
+            </ul>
+          </div>
+          <div class="stack-cluster">
+            <h3>Infra</h3>
+            <ul>
+              <li>Linux</li>
+              <li>Docker</li>
+              <li>Cloudflare</li>
+              <li>Proxmox</li>
+            </ul>
+          </div>
+          <div class="stack-cluster">
+            <h3>Languages</h3>
+            <ul>
+              <li>Python</li>
+              <li>Go</li>
+              <li>Bash</li>
+            </ul>
+          </div>
+          <div class="stack-cluster">
+            <h3>Blockchain</h3>
+            <ul>
+              <li>Ethereum</li>
+              <li>Solidity</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap" id="contact">
+      <div>
+        <p>© 2017–2026 Dominik Siejak · <code>s3lcsum</code></p>
+        <p>
+          <a href="https://url.dominiksiejak.pl/email">office via shortcurl</a>
+        </p>
+      </div>
+      <div class="socials" aria-label="Contact links">
+        <a href="https://url.dominiksiejak.pl/github">github</a>
+        <a href="https://url.dominiksiejak.pl/gitlab">gitlab</a>
+        <a href="https://url.dominiksiejak.pl/linkedin">linkedin</a>
+        <a href="https://url.dominiksiejak.pl/telegram">telegram</a>
+        <a href="https://url.dominiksiejak.pl/whatsapp">whatsapp</a>
+        <a href="https://url.dominiksiejak.pl/email">email</a>
+        <a href="https://url.dominiksiejak.pl/chess">chess</a>
+        <a href="https://url.dominiksiejak.pl/github/dotfiles">dotfiles</a>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("theme-toggle");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var cur =
+            document.documentElement.getAttribute("data-theme") === "dark"
+              ? "dark"
+              : "light";
+          var next = cur === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", next);
+          try {
+            localStorage.setItem("theme", next);
+          } catch (e) {}
+        });
+      })();
+    </script>
+    <script src="/vendor/gsap/gsap.min.js" defer></script>
+    <script src="/vendor/gsap/ScrollTrigger.min.js" defer></script>
+    <script src="/scripts/motion.js" defer></script>
+  </body>
+</html>
