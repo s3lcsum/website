@@ -53,6 +53,7 @@
   </script>
 </head>
 <body class="{{ if .IsHome }}is-home{{ else }}is-page{{ end }}">
+  <canvas id="living-field" class="living-field" aria-hidden="true"></canvas>
   <div class="grain" aria-hidden="true"></div>
   <div id="swup" class="transition-page">
     {{ if not .IsHome }}{{ partial "nav.html" . }}{{ end }}

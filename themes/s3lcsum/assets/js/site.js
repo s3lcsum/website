@@ -1,10 +1,15 @@
 (function () {
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const finePointerMq = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const desktopMq = window.matchMedia("(min-width: 900px)");
+
+  let reduceMotion = reduceMq.matches;
   const hasGsap = typeof gsap !== "undefined";
   const hasST = typeof ScrollTrigger !== "undefined";
   const hasSwup = typeof Swup !== "undefined";
 
   let pageCtx = null;
+  let pageCleanups = [];
   let scrollUnbind = null;
   let resizeUnbind = null;
 
@@ -15,7 +20,7 @@
 
   const safeTargets = () =>
     document.querySelectorAll(
-      ".card-portrait, .card-id .kicker, .card-id h1, .card-id .lede, .contact-list li, .card-actions, .card-foot, [data-reveal], #swup"
+      ".card-portrait, .card-portrait img, .card-id .kicker, .card-id h1, .card-id .lede, .contact-list li, .card-actions, .card-actions .btn, .card-foot, [data-reveal], #swup"
     );
 
   const ensureVisible = () => {
@@ -23,7 +28,19 @@
     document.querySelectorAll("[data-reveal]").forEach((el) => el.classList.add("is-visible"));
   };
 
+  const runPageCleanups = () => {
+    pageCleanups.forEach((fn) => {
+      try {
+        fn();
+      } catch (_) {
+        /* ignore */
+      }
+    });
+    pageCleanups = [];
+  };
+
   const killPageMotion = () => {
+    runPageCleanups();
     if (pageCtx) {
       pageCtx.revert();
       pageCtx = null;
@@ -194,7 +211,7 @@
   };
 
   const initNavHover = () => {
-    if (window.matchMedia("(hover: none)").matches) return;
+    if (!finePointerMq.matches) return;
     const links = gsap.utils.toArray(".mast-nav a");
     if (!links.length) return;
 
@@ -204,6 +221,200 @@
       });
       link.addEventListener("mouseleave", () => {
         gsap.to(link, { y: 0, duration: 0.28, ease: "power2.out", overwrite: "auto" });
+      });
+    });
+  };
+
+  // Soft living node/line field — once, outside #swup.
+  const initLivingField = () => {
+    const canvas = document.getElementById("living-field");
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx) return;
+
+    let nodes = [];
+    let raf = 0;
+    let running = false;
+    let w = 0;
+    let h = 0;
+    let linkDist = 130;
+
+    const rebuild = () => {
+      const area = w * h;
+      const count = Math.min(48, Math.max(16, Math.floor(area / 32000)));
+      linkDist = Math.min(160, Math.max(110, Math.sqrt(area) * 0.085));
+      nodes = [];
+      for (let i = 0; i < count; i++) {
+        nodes.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.12,
+          vy: (Math.random() - 0.5) * 0.12,
+          r: 0.8 + Math.random() * 1.1,
+        });
+      }
+    };
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      canvas.style.width = w + "px";
+      canvas.style.height = h + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      rebuild();
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x < -20) n.x = w + 20;
+        else if (n.x > w + 20) n.x = -20;
+        if (n.y < -20) n.y = h + 20;
+        else if (n.y > h + 20) n.y = -20;
+      }
+
+      for (let i = 0; i < nodes.length; i++) {
+        const a = nodes[i];
+        for (let j = i + 1; j < nodes.length; j++) {
+          const b = nodes[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const d = Math.hypot(dx, dy);
+          if (d >= linkDist) continue;
+          const t = 1 - d / linkDist;
+          ctx.strokeStyle = "rgba(196, 92, 38, " + (t * 0.14).toFixed(3) + ")";
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        ctx.fillStyle = "rgba(22, 18, 14, 0.22)";
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    };
+
+    const tick = () => {
+      if (!running) return;
+      draw();
+      raf = requestAnimationFrame(tick);
+    };
+
+    const start = () => {
+      if (running || reduceMotion || document.hidden) return;
+      running = true;
+      raf = requestAnimationFrame(tick);
+    };
+
+    const stop = () => {
+      running = false;
+      if (raf) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      }
+      ctx.clearRect(0, 0, w, h);
+    };
+
+    const sync = () => {
+      if (reduceMotion || document.hidden) stop();
+      else start();
+    };
+
+    resize();
+    sync();
+
+    window.addEventListener("resize", resize);
+    document.addEventListener("visibilitychange", sync);
+    reduceMq.addEventListener("change", (e) => {
+      reduceMotion = e.matches;
+      sync();
+    });
+  };
+
+  // Portrait micro-parallax — desktop + fine pointer; targets img only.
+  const initPortraitParallax = () => {
+    if (reduceMotion || !hasGsap) return;
+    if (!desktopMq.matches || !finePointerMq.matches) return;
+
+    const img = document.querySelector(".card-portrait img");
+    if (!img) return;
+
+    const max = 3.2;
+    const xTo = gsap.quickTo(img, "x", { duration: 0.55, ease: "power3" });
+    const yTo = gsap.quickTo(img, "y", { duration: 0.55, ease: "power3" });
+    const sTo = gsap.quickTo(img, "scale", { duration: 0.7, ease: "power2.out" });
+
+    const onMove = (e) => {
+      const nx = (e.clientX / window.innerWidth) * 2 - 1;
+      const ny = (e.clientY / window.innerHeight) * 2 - 1;
+      xTo(nx * max);
+      yTo(ny * max);
+      sTo(1.012);
+    };
+
+    const onLeave = () => {
+      xTo(0);
+      yTo(0);
+      sTo(1);
+    };
+
+    window.addEventListener("pointermove", onMove, { passive: true });
+    document.documentElement.addEventListener("mouseleave", onLeave);
+
+    pageCleanups.push(() => {
+      window.removeEventListener("pointermove", onMove);
+      document.documentElement.removeEventListener("mouseleave", onLeave);
+      gsap.set(img, { clearProps: "transform" });
+    });
+  };
+
+  // Magnetic CTAs — gsap.quickTo on primary buttons.
+  const initMagneticCtas = () => {
+    if (reduceMotion || !hasGsap) return;
+    if (!desktopMq.matches || !finePointerMq.matches) return;
+
+    const buttons = gsap.utils.toArray(".card-actions .btn, .lab-cta .btn");
+    if (!buttons.length) return;
+
+    buttons.forEach((btn) => {
+      const strength = 0.32;
+      const xTo = gsap.quickTo(btn, "x", { duration: 0.35, ease: "power3" });
+      const yTo = gsap.quickTo(btn, "y", { duration: 0.35, ease: "power3" });
+
+      const onMove = (e) => {
+        const rect = btn.getBoundingClientRect();
+        const relX = e.clientX - rect.left - rect.width / 2;
+        const relY = e.clientY - rect.top - rect.height / 2;
+        xTo(relX * strength);
+        yTo(relY * strength);
+      };
+
+      const onLeave = () => {
+        xTo(0);
+        yTo(0);
+      };
+
+      btn.addEventListener("pointermove", onMove);
+      btn.addEventListener("pointerleave", onLeave);
+
+      pageCleanups.push(() => {
+        btn.removeEventListener("pointermove", onMove);
+        btn.removeEventListener("pointerleave", onLeave);
+        gsap.set(btn, { clearProps: "transform" });
       });
     });
   };
@@ -223,6 +434,8 @@
       initReveals();
       initNavHover();
       initCounters();
+      initPortraitParallax();
+      initMagneticCtas();
     });
   };
 
@@ -327,6 +540,7 @@
   // Fail-safe: if GSAP never settles, keep content readable.
   window.setTimeout(ensureVisible, 2800);
 
+  initLivingField();
   initPage();
   initSwup();
 })();
