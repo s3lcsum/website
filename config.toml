@@ -68,7 +68,7 @@ name = "Chess.com"
 icon = "chess"
 weight = 4
 url = "https://www.chess.com/member/s3lcsum"
-short = "chess.com/s3lcsum"
+short = "chess.com/member/s3lcsum"
 
 [[params.social]]
 name = "Telegram"
